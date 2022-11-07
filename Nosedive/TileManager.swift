@@ -72,7 +72,7 @@ class TileManager {
             return true
         }
         if self.tiles[self.tiles.count-1][0].origin.y == self.screenHeight - self.rowSize {
-            print("generate")
+            //print("generate")
             return true
         }
         else {
@@ -85,12 +85,25 @@ class TileManager {
             return false
         }
         if self.tiles[0][0].origin.y <= 0 - self.rowSize {
-            print("delete")
+            //print("delete")
             return true
         }
         else {
             return false
         }
+    }
+    
+    func hasCollisionWithBoundary(player:Player) -> Bool {
+        for r in self.tiles {
+            for tileIndex in 0..<3 {
+                if tileIndex != 1 {
+                    if r[tileIndex].hasCollision(player: player) {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
     }
     
     func draw(boundColor:UIColor, lineColor:UIColor) {
@@ -145,6 +158,14 @@ class Tile {
         color.setFill()
         path.fill()
         path.close()
+    }
+    
+    func hasCollision(player:Player) -> Bool {
+        if self.origin.x <= player.origin.x + player.length && self.origin.x + self.width >= player.origin.x && self.origin.y <= player.origin.y + player.length && self.origin.y + self.height >= player.origin.y {
+            //print("Collision")
+            return true
+        }
+        return false
     }
     
     func printTile() {

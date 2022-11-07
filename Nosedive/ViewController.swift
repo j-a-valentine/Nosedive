@@ -10,12 +10,14 @@ import UIKit
 class ViewController: UIViewController {
 
     var gameView:GameView!
+    var gameLoop:Timer!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setGameView()
-        Timer.scheduledTimer(timeInterval: 1/60, target: self, selector: #selector(nextFrame), userInfo: nil, repeats: true)
+        gameView.gc.beginGame()
+        gameLoop = Timer.scheduledTimer(timeInterval: 1/60, target: self, selector: #selector(nextFrame), userInfo: nil, repeats: gameView.gc.isPlaying)
     }
     
     func setGameView() {
@@ -36,8 +38,13 @@ class ViewController: UIViewController {
     }
     
     @objc func nextFrame() {
-        gameView.gc.updateGame()
+        gameView.gc.updateGameTiles()
+        gameView.gc.updateGameStatus()
         gameView.setNeedsDisplay()
+        if gameView.gc.gameOver {
+            gameLoop.invalidate()
+        }
+        
     }
     
     

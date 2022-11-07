@@ -18,6 +18,7 @@ class GameController {
     var isPlaying:Bool
     var gameOver:Bool
     var genTest = 0
+    var genTestDirection = 1
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -26,7 +27,7 @@ class GameController {
         self.numRows = numRows
         self.numCols = numCols
         self.tileManager = TileManager(screenWidth: screenWidth, screenHeight: screenHeight, numRows: numRows, numCols: numCols)
-        self.player = Player(origin:CGPoint(x:screenWidth/2-15, y:screenHeight/CGFloat(numRows)-15), length: 30)
+        self.player = Player(origin:CGPoint(x:screenWidth/2-10, y:screenHeight/CGFloat(numRows)-10), length: 20)
         self.isPlaying = false
         self.gameOver = false
     }
@@ -40,18 +41,30 @@ class GameController {
         self.gameOver = true
     }
     
-    func updateGame() {
-        if genTest == self.numCols {
-            genTest = 0
+    func updateGameTiles() {
+        if genTest == self.numCols-2  && genTestDirection == 1{
+            genTestDirection = -1
         }
+        else if genTest == 0 && genTestDirection == -1 {
+            genTestDirection = 1
+        }
+        
         if self.tileManager.shouldGenerate() {
-            self.tileManager.generateRow(openCol: genTest, width: 1)
-            genTest += 1
+            self.tileManager.generateRow(openCol: genTest, width: 2)
+            genTest += genTestDirection*1
         }
         if self.tileManager.shouldDelete() {
             self.tileManager.deleteRow()
         }
         self.tileManager.shift()
+    }
+    
+    func updateGameStatus () {
+        if self.tileManager.hasCollisionWithBoundary(player: self.player) {
+            self.isPlaying = false
+            self.gameOver = true
+            print("Game Over")
+        }
     }
     
     func movePlayer(to: CGFloat) {
