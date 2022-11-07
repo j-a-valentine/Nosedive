@@ -25,6 +25,16 @@ class ViewController: UIViewController {
         view.addSubview(gameView)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let point = (touches.first)!.location(in: gameView) as CGPoint
+        gameView.gc.movePlayer(to:point.x)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let point = (touches.first)!.location(in: view) as CGPoint
+        gameView.gc.movePlayer(to:point.x)
+    }
+    
     @objc func nextFrame() {
         gameView.gc.updateGame()
         gameView.setNeedsDisplay()
