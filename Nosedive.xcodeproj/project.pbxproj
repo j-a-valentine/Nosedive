@@ -17,6 +17,7 @@
 		194D4ABC291968120006B1FE /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4ABB291968120006B1FE /* GameController.swift */; };
 		194D4ABE291968410006B1FE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4ABD291968410006B1FE /* GameView.swift */; };
 		194D4AC0291968920006B1FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4ABF291968920006B1FE /* Player.swift */; };
+		194D4AC2291C0C6A0006B1FE /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4AC1291C0C6A0006B1FE /* LevelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		194D4ABB291968120006B1FE /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		194D4ABD291968410006B1FE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		194D4ABF291968920006B1FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		194D4AC1291C0C6A0006B1FE /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				194D4ABB291968120006B1FE /* GameController.swift */,
 				194D4ABD291968410006B1FE /* GameView.swift */,
 				194D4ABF291968920006B1FE /* Player.swift */,
+				194D4AC1291C0C6A0006B1FE /* LevelData.swift */,
 			);
 			path = Nosedive;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				194D4ABC291968120006B1FE /* GameController.swift in Sources */,
 				194D4ABA291967EE0006B1FE /* TileManager.swift in Sources */,
 				194D4AA6291965E80006B1FE /* AppDelegate.swift in Sources */,
+				194D4AC2291C0C6A0006B1FE /* LevelData.swift in Sources */,
 				194D4AC0291968920006B1FE /* Player.swift in Sources */,
 				194D4ABE291968410006B1FE /* GameView.swift in Sources */,
 				194D4AA8291965E80006B1FE /* SceneDelegate.swift in Sources */,

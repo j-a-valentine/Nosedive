@@ -161,7 +161,7 @@ class Tile {
     }
     
     func hasCollision(player:Player) -> Bool {
-        if self.origin.x <= player.origin.x + player.length && self.origin.x + self.width >= player.origin.x && self.origin.y <= player.origin.y + player.length && self.origin.y + self.height >= player.origin.y {
+        if self.origin.x < player.origin.x + player.length && self.origin.x + self.width > player.origin.x && self.origin.y < player.origin.y + player.length && self.origin.y + self.height > player.origin.y {
             //print("Collision")
             return true
         }

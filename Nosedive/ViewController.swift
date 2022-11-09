@@ -38,8 +38,7 @@ class ViewController: UIViewController {
     }
     
     @objc func nextFrame() {
-        gameView.gc.updateGameTiles()
-        gameView.gc.updateGameStatus()
+        gameView.updateGame()
         gameView.setNeedsDisplay()
         if gameView.gc.gameOver {
             gameLoop.invalidate()

@@ -21,9 +21,15 @@ class GameView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateGame() {
+        self.gc.updateGameTiles()
+        self.gc.updateGameStatus()
+    }
+    
     
     override func draw(_ rect: CGRect) {
         gc.drawGame()
     }
+    
     
 }
