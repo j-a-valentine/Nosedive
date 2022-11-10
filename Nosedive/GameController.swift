@@ -56,8 +56,7 @@ class GameController {
     
     func updateGameStatus () {
         if self.tileManager.hasCollisionWithBoundary(player: self.player) {
-            //self.isPlaying = false
-            //self.gameOver = true
+            self.endGame()
             //print("Game Over")
         }
     }

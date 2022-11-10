@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		194D4AA6291965E80006B1FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4AA5291965E80006B1FE /* AppDelegate.swift */; };
 		194D4AA8291965E80006B1FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4AA7291965E80006B1FE /* SceneDelegate.swift */; };
-		194D4AAA291965E80006B1FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4AA9291965E80006B1FE /* ViewController.swift */; };
 		194D4AAD291965E80006B1FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194D4AAB291965E80006B1FE /* Main.storyboard */; };
 		194D4AAF291965EC0006B1FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 194D4AAE291965EC0006B1FE /* Assets.xcassets */; };
 		194D4AB2291965EC0006B1FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194D4AB0291965EC0006B1FE /* LaunchScreen.storyboard */; };
@@ -18,13 +17,16 @@
 		194D4ABE291968410006B1FE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4ABD291968410006B1FE /* GameView.swift */; };
 		194D4AC0291968920006B1FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4ABF291968920006B1FE /* Player.swift */; };
 		194D4AC2291C0C6A0006B1FE /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194D4AC1291C0C6A0006B1FE /* LevelData.swift */; };
+		DCD0BBBF291D9AD60097B0CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */; };
+		DCD0BBC1291DA7DA0097B0CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */; };
+		DCD0BBC3291DAA5F0097B0CF /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC2291DAA5F0097B0CF /* ThemesViewController.swift */; };
+		DCD0BBC5291DAA6A0097B0CF /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC4291DAA6A0097B0CF /* LeadersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		194D4AA2291965E80006B1FE /* Nosedive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosedive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		194D4AA5291965E80006B1FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		194D4AA7291965E80006B1FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		194D4AA9291965E80006B1FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		194D4AAC291965E80006B1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		194D4AAE291965EC0006B1FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		194D4AB1291965EC0006B1FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +36,10 @@
 		194D4ABD291968410006B1FE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		194D4ABF291968920006B1FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		194D4AC1291C0C6A0006B1FE /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DCD0BBC2291DAA5F0097B0CF /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		DCD0BBC4291DAA6A0097B0CF /* LeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +72,10 @@
 		194D4AA4291965E80006B1FE /* Nosedive */ = {
 			isa = PBXGroup;
 			children = (
+				DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */,
+				DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */,
 				194D4AA5291965E80006B1FE /* AppDelegate.swift */,
 				194D4AA7291965E80006B1FE /* SceneDelegate.swift */,
-				194D4AA9291965E80006B1FE /* ViewController.swift */,
 				194D4AAB291965E80006B1FE /* Main.storyboard */,
 				194D4AAE291965EC0006B1FE /* Assets.xcassets */,
 				194D4AB0291965EC0006B1FE /* LaunchScreen.storyboard */,
@@ -78,6 +85,8 @@
 				194D4ABD291968410006B1FE /* GameView.swift */,
 				194D4ABF291968920006B1FE /* Player.swift */,
 				194D4AC1291C0C6A0006B1FE /* LevelData.swift */,
+				DCD0BBC2291DAA5F0097B0CF /* ThemesViewController.swift */,
+				DCD0BBC4291DAA6A0097B0CF /* LeadersViewController.swift */,
 			);
 			path = Nosedive;
 			sourceTree = "<group>";
@@ -153,10 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194D4AAA291965E80006B1FE /* ViewController.swift in Sources */,
+				DCD0BBC5291DAA6A0097B0CF /* LeadersViewController.swift in Sources */,
+				DCD0BBC1291DA7DA0097B0CF /* GameViewController.swift in Sources */,
 				194D4ABC291968120006B1FE /* GameController.swift in Sources */,
 				194D4ABA291967EE0006B1FE /* TileManager.swift in Sources */,
 				194D4AA6291965E80006B1FE /* AppDelegate.swift in Sources */,
+				DCD0BBC3291DAA5F0097B0CF /* ThemesViewController.swift in Sources */,
+				DCD0BBBF291D9AD60097B0CF /* MenuViewController.swift in Sources */,
 				194D4AC2291C0C6A0006B1FE /* LevelData.swift in Sources */,
 				194D4AC0291968920006B1FE /* Player.swift in Sources */,
 				194D4ABE291968410006B1FE /* GameView.swift in Sources */,

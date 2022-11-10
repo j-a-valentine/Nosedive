@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     var gameView:GameView!
     var gameLoop:Timer!
@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         setGameView()
         gameView.gc.beginGame()
         gameLoop = Timer.scheduledTimer(timeInterval: 1/60, target: self, selector: #selector(nextFrame), userInfo: nil, repeats: gameView.gc.isPlaying)
@@ -28,12 +29,12 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = (touches.first)!.location(in: gameView) as CGPoint
+        guard touches.count == 1, let point = (touches.first)?.location(in: gameView) else {return}
         gameView.gc.movePlayer(to:point.x)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = (touches.first)!.location(in: view) as CGPoint
+        guard touches.count == 1, let point = (touches.first)?.location(in: gameView) else {return}
         gameView.gc.movePlayer(to:point.x)
     }
     
@@ -42,6 +43,9 @@ class ViewController: UIViewController {
         gameView.setNeedsDisplay()
         if gameView.gc.gameOver {
             gameLoop.invalidate()
+            
+            let menuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "menu")
+            self.navigationController?.pushViewController(menuController, animated: false)
         }
         
     }
