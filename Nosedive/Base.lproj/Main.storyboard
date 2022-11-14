@@ -236,7 +236,7 @@
         <!--Store View Controller-->
         <scene sceneID="nmX-5l-ZSc">
             <objects>
-                <viewController restorationIdentifier="store" storyboardIdentifier="store" id="pK9-ea-7Aq" customClass="StoreViewController" customModule="Nosedive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="store" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pK9-ea-7Aq" customClass="StoreViewController" customModule="Nosedive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="543-O4-MQy">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
