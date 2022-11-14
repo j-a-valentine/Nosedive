@@ -37,7 +37,7 @@ class TileManager {
     }
     
     var shiftBy:CGFloat {
-        return self.rowSize/40
+        return self.rowSize/30
     }
     
     func generateRow(openCol:Int, width:Int) {
@@ -62,6 +62,14 @@ class TileManager {
         for r in self.tiles{
             for t in r {
                 t.shift(shiftBy:self.shiftBy)
+            }
+        }
+    }
+    
+    func shiftFull() {
+        for r  in self.tiles {
+            for t in r {
+                t.shift(shiftBy: self.rowSize)
             }
         }
     }
