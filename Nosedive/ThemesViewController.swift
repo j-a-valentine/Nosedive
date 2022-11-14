@@ -7,11 +7,38 @@
 
 import UIKit
 
-class ThemesViewController: UIViewController {
+class ThemesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return themes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = themesCollectionView.dequeueReusableCell(withReuseIdentifier: "themeCell", for: indexPath)
 
+        guard let cell = cell as? ThemeCell
+        else{
+            return UICollectionViewCell()
+        }
+        cell.imageView.contentMode = .scaleAspectFit
+        cell.imageView.image = UIImage(named: themes[indexPath.row])
+        cell.theme.text = themes[indexPath.row]
+        return cell
+    }
+    
+    
+    var themes = ["Fire", "Water","Earth", "Space"]
+    
+    @IBOutlet weak var themesCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        themesCollectionView.dataSource = self
+        themesCollectionView.delegate = self
+        themesCollectionView.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
     
