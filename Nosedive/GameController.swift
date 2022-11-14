@@ -33,12 +33,21 @@ class GameController {
     }
     
     func beginGame() {
+        self.setStartingTiles()
         self.isPlaying = true
     }
     
     func endGame() {
         self.isPlaying = false
         self.gameOver = true
+    }
+    
+    func setStartingTiles() {
+        let startingTiles = self.levelData.getPreStartBoard()
+        for t in startingTiles {
+            self.tileManager.generateRow(openCol: t[0], width: t[1])
+            self.tileManager.shiftFull()
+        }
     }
     
     func updateGameTiles() {

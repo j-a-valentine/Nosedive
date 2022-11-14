@@ -24,7 +24,6 @@ class GameViewController: UIViewController {
     func setGameView() {
         let frame = CGRect(x:0, y:50, width:self.view.frame.width, height:750)
         gameView = GameView(frame: frame)
-        //gameView.backgroundColor = .systemPink
         view.addSubview(gameView)
     }
     

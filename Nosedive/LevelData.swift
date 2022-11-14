@@ -33,6 +33,16 @@ class LevelData {
         return data
     }
     
+    func getPreStartBoard() -> [[Int]]{
+        var beginningList:[[Int]] = []
+        for x in minCol ... maxCol/2 {
+            for _ in 0 ..< 2 {
+                beginningList.append([x, maxCol+1-2*x])
+            }
+        }
+        return beginningList
+    }
+    
     func generatePath() {
         var shouldMove = false
         let moveChance = 0.5
