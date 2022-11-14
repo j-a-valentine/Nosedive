@@ -35,6 +35,14 @@ class MenuViewController: UIViewController {
         self.navigationController?.pushViewController(themeController, animated: true)
     }
     
+    @IBAction func storeButtonPress(_ sender: Any) {
+        
+        guard let storeController = self.storyboard?.instantiateViewController(withIdentifier: "store") else{return}
+        self.navigationController?.pushViewController(storeController, animated: true)
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
