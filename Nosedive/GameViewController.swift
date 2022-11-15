@@ -11,6 +11,7 @@ class GameViewController: UIViewController {
 
     var gameView:GameView!
     var gameLoop:Timer!
+    var tileData:[[Int]]!
     
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class GameViewController: UIViewController {
     func setGameView() {
         let frame = CGRect(x:0, y:50, width:self.view.frame.width, height:750)
         gameView = GameView(frame: frame)
+        gameView.gc.levelData.setLevelData(tileData: self.tileData)
         view.addSubview(gameView)
     }
     

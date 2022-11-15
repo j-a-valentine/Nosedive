@@ -18,6 +18,7 @@ class GameController {
     var isPlaying:Bool
     var gameOver:Bool
     var levelData:LevelData
+    var finishLineGenerated:Bool
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -30,6 +31,7 @@ class GameController {
         self.isPlaying = false
         self.gameOver = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
+        self.finishLineGenerated = false
     }
     
     func beginGame() {
@@ -54,7 +56,13 @@ class GameController {
         
         if self.tileManager.shouldGenerate() {
             let data = self.levelData.getNextRow()
-            self.tileManager.generateRow(openCol: data[0], width: data[1])
+            if data.count != 0 {
+                self.tileManager.generateRow(openCol: data[0], width: data[1])
+            }
+            else if self.finishLineGenerated == false {
+                self.finishLineGenerated = true
+                self.tileManager.generateFinishLine()
+            }
             
         }
         if self.tileManager.shouldDelete() {
@@ -66,7 +74,11 @@ class GameController {
     func updateGameStatus () {
         if self.tileManager.hasCollisionWithBoundary(player: self.player) {
             self.endGame()
-            //print("Game Over")
+            print("Game Over")
+        }
+        if self.tileManager.hasCollisionWithFinishLine(player: self.player) {
+            self.endGame()
+            print("You Win")
         }
     }
     
@@ -82,7 +94,7 @@ class GameController {
     }
     
     func drawGame() {
-        self.tileManager.draw(boundColor: .red, lineColor: .blue)
+        self.tileManager.draw(boundColor: .red, lineColor: .blue, finishLineColor:.purple)
         self.player.draw(color: .orange)
     }
 

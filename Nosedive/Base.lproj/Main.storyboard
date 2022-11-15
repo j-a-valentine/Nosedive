@@ -233,6 +233,49 @@
             </objects>
             <point key="canvasLocation" x="1864" y="795"/>
         </scene>
+        <!--Levels View Controller-->
+        <scene sceneID="yDt-SR-84l">
+            <objects>
+                <viewController storyboardIdentifier="levels" id="IdG-Pb-GZK" customClass="LevelsViewController" customModule="Nosedive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MFj-PQ-0ew">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Levels" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hP-ZB-ZEv">
+                                <rect key="frame" x="65" y="44" width="260" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0vd-Re-RHK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9bP-go-KmJ">
+                                <rect key="frame" x="16" y="112" width="358" height="698"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemCyanColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fco-t3-LNB"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="9bP-go-KmJ" firstAttribute="top" secondItem="1hP-ZB-ZEv" secondAttribute="bottom" constant="8" symbolic="YES" id="Ab9-2L-UhP"/>
+                            <constraint firstItem="9bP-go-KmJ" firstAttribute="bottom" secondItem="Fco-t3-LNB" secondAttribute="bottom" id="ShF-gD-m7l"/>
+                            <constraint firstItem="9bP-go-KmJ" firstAttribute="leading" secondItem="Fco-t3-LNB" secondAttribute="leading" constant="16" id="Sr6-1B-Cla"/>
+                            <constraint firstItem="Fco-t3-LNB" firstAttribute="trailing" secondItem="9bP-go-KmJ" secondAttribute="trailing" constant="16" id="TWA-pY-4vG"/>
+                            <constraint firstItem="Fco-t3-LNB" firstAttribute="trailing" secondItem="1hP-ZB-ZEv" secondAttribute="trailing" constant="65" id="icw-td-w5p"/>
+                            <constraint firstItem="1hP-ZB-ZEv" firstAttribute="top" secondItem="Fco-t3-LNB" secondAttribute="top" id="th9-1y-gxJ"/>
+                            <constraint firstItem="1hP-ZB-ZEv" firstAttribute="leading" secondItem="Fco-t3-LNB" secondAttribute="leading" constant="65" id="z40-Dq-nvv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9bP-go-KmJ" id="DST-ca-HRk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8c-U2-Grc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2707.6923076923076" y="794.78672985781986"/>
+        </scene>
         <!--Store View Controller-->
         <scene sceneID="nmX-5l-ZSc">
             <objects>

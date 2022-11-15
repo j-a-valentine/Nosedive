@@ -12,20 +12,30 @@ class LevelData {
     var maxCol:Int
     var tileData:[[Int]]
     var tracker:Int
+    var canGenerate:Bool
     
     init(minCol:Int, maxCol:Int, tileData:[[Int]]) {
         self.minCol = minCol
         self.maxCol = maxCol
         self.tileData = tileData
         self.tracker = 0
+        self.canGenerate = true
     }
     
     convenience init(minCol:Int, maxCol:Int) {
         self.init(minCol:minCol, maxCol:maxCol, tileData:[])
     }
     
+    func setLevelData(tileData:[[Int]]) {
+        self.tileData = tileData
+        self.canGenerate = (tileData.count <= 0)
+    }
+    
     func getNextRow() -> [Int]{
         while(self.tracker >= self.tileData.count){
+            if self.canGenerate == false {
+                return []
+            }
             self.generatePath()
         }
         let data = self.tileData[self.tracker]
@@ -42,6 +52,8 @@ class LevelData {
         }
         return beginningList
     }
+    
+    
     
     func generatePath() {
         var shouldMove = false
