@@ -18,6 +18,7 @@ class GameController {
     var isPlaying:Bool
     var gameOver:Bool
     var levelData:LevelData
+    var theme:Theme
     var finishLineGenerated:Bool
     
     
@@ -31,6 +32,7 @@ class GameController {
         self.isPlaying = false
         self.gameOver = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
+        self.theme = Theme()
         self.finishLineGenerated = false
     }
     
@@ -94,8 +96,12 @@ class GameController {
     }
     
     func drawGame() {
-        self.tileManager.draw(boundColor: .red, lineColor: .blue, finishLineColor:.purple)
-        self.player.draw(color: .orange)
+        self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:.purple)
+        self.player.draw(image: theme.playerImage)
+    }
+    
+    func loadTheme(theme:Theme) {
+        self.theme = theme
     }
 
 }

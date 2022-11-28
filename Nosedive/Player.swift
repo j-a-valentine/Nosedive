@@ -32,4 +32,8 @@ class Player {
         path.fill()
         path.close()
     }
+    
+    func draw(image:UIImage) {
+        image.draw(at: self.origin)
+    }
 }
