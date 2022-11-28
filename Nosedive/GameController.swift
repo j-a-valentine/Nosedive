@@ -20,6 +20,7 @@ class GameController {
     var levelData:LevelData
     var theme:Theme
     var finishLineGenerated:Bool
+    var score:Int
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -28,12 +29,13 @@ class GameController {
         self.numRows = numRows
         self.numCols = numCols
         self.tileManager = TileManager(screenWidth: screenWidth, screenHeight: screenHeight, numRows: numRows, numCols: numCols)
-        self.player = Player(origin:CGPoint(x:screenWidth/2-10, y:screenHeight/CGFloat(numRows)-10), length: 20)
+        self.player = Player(origin:CGPoint(x:screenWidth/2-15, y:screenHeight/CGFloat(numRows)-15), length: 30)
         self.isPlaying = false
         self.gameOver = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
         self.theme = Theme()
         self.finishLineGenerated = false
+        self.score = 0
     }
     
     func beginGame() {
@@ -69,6 +71,7 @@ class GameController {
         }
         if self.tileManager.shouldDelete() {
             self.tileManager.deleteRow()
+            self.score += 1
         }
         self.tileManager.shift()
     }
@@ -97,7 +100,8 @@ class GameController {
     
     func drawGame() {
         self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:.purple)
-        self.player.draw(image: theme.playerImage)
+        self.player.draw(color: .red)
+        //self.player.draw(image: theme.playerImage)
     }
     
     func loadTheme(theme:Theme) {
