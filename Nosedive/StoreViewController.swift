@@ -9,25 +9,26 @@ import UIKit
 
 class StoreViewController: UIViewController {
     
+
+    @IBOutlet weak var ghostModeButton: UIButton!
+    @IBOutlet weak var boostButton: UIButton!
     
-    @IBOutlet weak var pA: UIButton!
-    @IBOutlet weak var pB: UIButton!
-    @IBOutlet weak var pC: UIButton!
-    @IBOutlet weak var pD: UIButton!
+    @IBOutlet weak var ghostCounter: UILabel!
+    @IBOutlet weak var boostCounter: UILabel!
+    // GRAB FROM CORE DATA
+    var gCount = 0
+    var bCount = 0
     
-    @IBOutlet weak var sA: UIButton!
-    @IBOutlet weak var sB: UIButton!
-    @IBOutlet weak var sC: UIButton!
-    @IBOutlet weak var sD: UIButton!
     
-    @IBAction func pA_Pressed(_ sender: Any) {
-        print("pressed")
+    @IBAction func ghostPressed(_ sender: Any) {
+        gCount += 1
+        ghostCounter.text = "Owned: \(gCount)"
     }
     
-    
-    
-    
-    
+    @IBAction func boostPressed(_ sender: Any) {
+        bCount += 1
+        boostCounter.text = "Owned: \(bCount)"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

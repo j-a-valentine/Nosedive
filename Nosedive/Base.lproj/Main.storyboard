@@ -254,69 +254,48 @@
                                 <rect key="frame" x="17" y="224" width="169" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Super Cool Powerup A">
-                                    <color key="baseBackgroundColor" red="0.65062648765537112" green="0.76862752440000004" blue="0.34564593736947447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Ghost Mode">
+                                    <color key="baseBackgroundColor" red="0.74924808766107598" green="0.76862752440000004" blue="0.76057898736363461" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="pA_Pressed:" destination="pK9-ea-7Aq" eventType="touchUpInside" id="yaI-C3-EHv"/>
+                                    <action selector="ghostPressed:" destination="pK9-ea-7Aq" eventType="touchUpInside" id="Pai-NO-W1Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4y-rS-gMP">
-                                <rect key="frame" x="17" y="352" width="169" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Super Cool Powerup B">
-                                    <color key="baseBackgroundColor" red="0.65062648765537112" green="0.76862752440000004" blue="0.34564593736947447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaN-gt-iXy">
-                                <rect key="frame" x="16" y="477" width="170" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Super Cool Powerup C">
-                                    <color key="baseBackgroundColor" red="0.65062648765537112" green="0.76862752440000004" blue="0.34564593736947447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjY-4Y-uox">
-                                <rect key="frame" x="16" y="605" width="170" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Super Cool Powerup D">
-                                    <color key="baseBackgroundColor" red="0.65062648765537112" green="0.76862752440000004" blue="0.34564593736947447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IR-Jp-7HH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVf-VV-Npz">
                                 <rect key="frame" x="205" y="224" width="169" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Corresponding Skin A">
-                                    <color key="baseBackgroundColor" red="0.39728583837184384" green="0.38561210362164278" blue="0.92687825382370304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Boost">
+                                    <color key="baseBackgroundColor" red="0.76862752440000004" green="0.40432128835709247" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="boostPressed:" destination="pK9-ea-7Aq" eventType="touchUpInside" id="FK8-PM-ZL0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRb-rD-AnJ">
-                                <rect key="frame" x="205" y="352" width="169" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owned: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSg-bf-eIQ">
+                                <rect key="frame" x="205" y="313" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Corresponding Skin B">
-                                    <color key="baseBackgroundColor" red="0.39728583837184384" green="0.38561210362164278" blue="0.92687825382370304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QQ-Kl-euS">
-                                <rect key="frame" x="204" y="477" width="170" height="81"/>
+                                <color key="backgroundColor" red="0.76862752440000004" green="0.40392160420000001" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3L-vz-Q3c">
+                                <rect key="frame" x="129" y="142" width="133" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Corresponding Skin C">
-                                    <color key="baseBackgroundColor" red="0.39728583837184384" green="0.38561210362164278" blue="0.92687825382370304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1R-oD-caZ">
-                                <rect key="frame" x="204" y="605" width="170" height="81"/>
+                                <color key="backgroundColor" red="0.36871245415478243" green="0.58976320876288657" blue="0.41127617690229318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owned: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-Ni-suw">
+                                <rect key="frame" x="16" y="313" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Corresponding Skin D">
-                                    <color key="baseBackgroundColor" red="0.39728583837184384" green="0.38561210362164278" blue="0.92687825382370304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
+                                <color key="backgroundColor" red="0.74901962280000001" green="0.76862752440000004" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R7e-v2-eVh"/>
                         <color key="backgroundColor" red="0.34901961679999999" green="0.67058825489999996" blue="0.88235294819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -327,14 +306,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pA" destination="0ZO-eD-qIE" id="6LF-me-0Qx"/>
-                        <outlet property="pB" destination="r4y-rS-gMP" id="yog-Be-bET"/>
-                        <outlet property="pC" destination="FaN-gt-iXy" id="iXq-Ll-aWB"/>
-                        <outlet property="pD" destination="AjY-4Y-uox" id="ixX-hN-nWg"/>
-                        <outlet property="sA" destination="7IR-Jp-7HH" id="4CQ-Ex-aMh"/>
-                        <outlet property="sB" destination="BRb-rD-AnJ" id="mMp-Hc-XvP"/>
-                        <outlet property="sC" destination="9QQ-Kl-euS" id="3YR-uH-EYN"/>
-                        <outlet property="sD" destination="t1R-oD-caZ" id="Z5T-Mw-Nc5"/>
+                        <outlet property="boostButton" destination="uVf-VV-Npz" id="WZh-0T-YBu"/>
+                        <outlet property="boostCounter" destination="zSg-bf-eIQ" id="gnq-e1-8Mc"/>
+                        <outlet property="ghostCounter" destination="uJY-Ni-suw" id="5ln-xX-ssj"/>
+                        <outlet property="ghostModeButton" destination="0ZO-eD-qIE" id="S3U-q9-e4h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVJ-tK-EFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
