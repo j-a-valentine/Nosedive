@@ -12,7 +12,6 @@ class GameView: UIView {
     
     var gc:GameController
     
-    
     override init(frame: CGRect) {
         self.gc = GameController(screenWidth: frame.width, screenHeight: frame.height, numRows: 8, numCols: 7)
         super.init(frame: frame)

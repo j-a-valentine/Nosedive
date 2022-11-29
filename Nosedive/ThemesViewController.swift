@@ -26,10 +26,16 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        userDefaults.set(indexPath.row, forKey: "theme")
+    }
+    
     
     var themes = ["Fire", "Water","Earth", "Space"]
     
     @IBOutlet weak var themesCollectionView: UICollectionView!
+    
+    let userDefaults = UserDefaults.standard
     
     
     override func viewDidLoad() {

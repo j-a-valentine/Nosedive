@@ -15,6 +15,7 @@ class TileManager {
     var screenHeight:CGFloat
     var numRows:Int
     var numCols:Int
+    var finishLine:Tile?
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
         self.tiles = []
@@ -64,6 +65,7 @@ class TileManager {
                 t.shift(shiftBy:self.shiftBy)
             }
         }
+        self.finishLine?.shift(shiftBy: self.shiftBy)
     }
     
     func shiftFull() {
@@ -114,7 +116,19 @@ class TileManager {
         return false
     }
     
-    func draw(boundColor:UIColor, lineColor:UIColor) {
+    func hasCollisionWithFinishLine(player:Player) -> Bool {
+        guard let finish = self.finishLine else {
+            return false
+        }
+        return finish.hasCollision(player: player)
+        
+    }
+    
+    func generateFinishLine() {
+        self.finishLine = Tile(origin:CGPoint(x:0, y:self.offScreenSpawnY), width:self.screenWidth, height:self.screenHeight)
+    }
+    
+    func draw(boundColor:UIColor, lineColor:UIColor, finishLineColor:UIColor) {
         var selectedColor = boundColor
         for r in self.tiles {
             var count = 1
@@ -129,6 +143,8 @@ class TileManager {
                 count+=1
             }
         }
+        self.finishLine?.draw(color: .purple)
+        
     }
     
     func printTiles() {

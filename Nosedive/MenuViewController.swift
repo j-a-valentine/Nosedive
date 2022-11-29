@@ -21,8 +21,8 @@ class MenuViewController: UIViewController {
     
 
     @IBAction func playButtonPress(_ sender: UIButton) {
-        let gameController = GameViewController()
-        self.navigationController?.pushViewController(gameController, animated: false)
+        guard let levelController = self.storyboard?.instantiateViewController(withIdentifier: "levels") else{return}
+        self.navigationController?.pushViewController(levelController, animated: true)
     }
     
     @IBAction func themeButtonPress(_ sender: UIButton) {

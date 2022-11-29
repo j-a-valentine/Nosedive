@@ -18,6 +18,9 @@ class GameController {
     var isPlaying:Bool
     var gameOver:Bool
     var levelData:LevelData
+    var theme:Theme
+    var finishLineGenerated:Bool
+    var score:Int
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -26,10 +29,13 @@ class GameController {
         self.numRows = numRows
         self.numCols = numCols
         self.tileManager = TileManager(screenWidth: screenWidth, screenHeight: screenHeight, numRows: numRows, numCols: numCols)
-        self.player = Player(origin:CGPoint(x:screenWidth/2-10, y:screenHeight/CGFloat(numRows)-10), length: 20)
+        self.player = Player(origin:CGPoint(x:screenWidth/2-15, y:screenHeight/CGFloat(numRows)-15), length: 30)
         self.isPlaying = false
         self.gameOver = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
+        self.theme = Theme()
+        self.finishLineGenerated = false
+        self.score = 0
     }
     
     func beginGame() {
@@ -54,11 +60,18 @@ class GameController {
         
         if self.tileManager.shouldGenerate() {
             let data = self.levelData.getNextRow()
-            self.tileManager.generateRow(openCol: data[0], width: data[1])
+            if data.count != 0 {
+                self.tileManager.generateRow(openCol: data[0], width: data[1])
+            }
+            else if self.finishLineGenerated == false {
+                self.finishLineGenerated = true
+                self.tileManager.generateFinishLine()
+            }
             
         }
         if self.tileManager.shouldDelete() {
             self.tileManager.deleteRow()
+            self.score += 1
         }
         self.tileManager.shift()
     }
@@ -66,7 +79,11 @@ class GameController {
     func updateGameStatus () {
         if self.tileManager.hasCollisionWithBoundary(player: self.player) {
             self.endGame()
-            //print("Game Over")
+            print("Game Over")
+        }
+        if self.tileManager.hasCollisionWithFinishLine(player: self.player) {
+            self.endGame()
+            print("You Win")
         }
     }
     
@@ -82,8 +99,13 @@ class GameController {
     }
     
     func drawGame() {
-        self.tileManager.draw(boundColor: .red, lineColor: .blue)
-        self.player.draw(color: .orange)
+        self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:.purple)
+        self.player.draw(color: .red)
+        //self.player.draw(image: theme.playerImage)
+    }
+    
+    func loadTheme(theme:Theme) {
+        self.theme = theme
     }
 
 }
