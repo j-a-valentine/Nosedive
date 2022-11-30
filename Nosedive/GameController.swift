@@ -108,7 +108,7 @@ class GameController {
     
     func drawGame() {
         self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:theme.goalColor)
-        if self.ghostModeFrame < 25 {
+        if self.ghostModeFrame < 25 || !self.ghostMode {
             //self.player.draw(color: .red)
             self.player.draw(image: theme.playerImage)
         }
