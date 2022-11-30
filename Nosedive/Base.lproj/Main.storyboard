@@ -295,10 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="str-jO-cOL">
-                                <rect key="frame" x="0.0" y="44" width="390" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Zkh-6p-4pX"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="390" height="57.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -361,6 +358,7 @@
                     <connections>
                         <outlet property="boostButton" destination="uVf-VV-Npz" id="WZh-0T-YBu"/>
                         <outlet property="boostCounter" destination="zSg-bf-eIQ" id="gnq-e1-8Mc"/>
+                        <outlet property="coinCounter" destination="i3L-vz-Q3c" id="fFB-9H-UIm"/>
                         <outlet property="ghostCounter" destination="uJY-Ni-suw" id="5ln-xX-ssj"/>
                         <outlet property="ghostModeButton" destination="0ZO-eD-qIE" id="S3U-q9-e4h"/>
                     </connections>

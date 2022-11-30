@@ -22,20 +22,32 @@ class StoreViewController: UIViewController {
     
     
     @IBAction func ghostPressed(_ sender: Any) {
-        gCount += 1
-        ghostCounter.text = "Owned: \(gCount)"
+        if(UserData.totalCoins > 20) {
+            gCount += 1
+            UserData.totalCoins -= 20
+        }
+        updateText()
     }
     
     @IBAction func boostPressed(_ sender: Any) {
-        bCount += 1
-        boostCounter.text = "Owned: \(bCount)"
+        if(UserData.totalCoins > 20) {
+            bCount += 1
+            UserData.totalCoins -= 20
+        }
+        updateText()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        updateText()
+    }
+    func updateText() {
         coinCounter.text = "Coins: \(UserData.totalCoins)"
-        
+        boostCounter.text = "Owned: \(bCount)"
+        ghostCounter.text = "Owned: \(gCount)"
+
+
     }
     
 
