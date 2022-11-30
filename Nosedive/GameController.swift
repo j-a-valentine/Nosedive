@@ -29,7 +29,7 @@ class GameController {
         self.numRows = numRows
         self.numCols = numCols
         self.tileManager = TileManager(screenWidth: screenWidth, screenHeight: screenHeight, numRows: numRows, numCols: numCols)
-        self.player = Player(origin:CGPoint(x:screenWidth/2-15, y:screenHeight/CGFloat(numRows)-15), length: 30)
+        self.player = Player(origin:CGPoint(x:screenWidth/2-12, y:screenHeight/CGFloat(numRows)-12), length: 24)
         self.isPlaying = false
         self.gameOver = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
