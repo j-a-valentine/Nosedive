@@ -55,22 +55,19 @@ class LevelData {
     
     
     
-    func generatePath() {
+    func generateEasyPath() {
         var shouldMove = false
         let moveChance = 0.5
-        
         if self.tileData.count == 0 {
             let col = (self.maxCol - self.minCol)/2
             let width = 1
             self.tileData.append([col, width])
             return
         }
-        
         var random = Int.random(in: 0..<100)
         if random < Int(moveChance*100) {
             shouldMove = true
         }
-        
         if shouldMove == true {
             var moveDirection = 1
             let lastCol = self.tileData[self.tileData.count-1][0]
@@ -95,8 +92,6 @@ class LevelData {
             }
             self.tileData.append([col, 1])
             return
-            
-            
         }
         
         if shouldMove == false {
@@ -108,5 +103,47 @@ class LevelData {
         
         
     }
+    
+    func generatePath() {
+        if self.tileData.count == 0 {
+            let col = (self.maxCol - self.minCol)/2
+            let width = 1
+            self.tileData.append([col, width])
+            return
+        }
+        
+        let col = Int.random(in: self.minCol...self.maxCol)
+        
+        let lastCol = self.tileData[self.tileData.count-1][0]
+        
+        if col == lastCol {
+            self.tileData.append([col, 1])
+            return
+        }
+        
+        else if col > lastCol {
+            let width = col - lastCol + 1
+            self.tileData.append([lastCol, width])
+            if width > 4 {
+                self.tileData.append([lastCol + 3, width - 3])
+            }
+            self.tileData.append([col, 1])
+            return
+        }
+        
+        else{
+            let width = lastCol - col + 1
+            if width > 4{
+                self.tileData.append([col + 3, width - 3])
+            }
+            self.tileData.append([col, width])
+            self.tileData.append([col, 1])
+            return
+        }
+        
+            
+    }
+        
+        
     
 }
