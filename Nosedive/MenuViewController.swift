@@ -8,10 +8,11 @@
 import UIKit
 
 class MenuViewController: UIViewController {
+    
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     

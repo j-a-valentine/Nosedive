@@ -21,7 +21,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
             return UICollectionViewCell()
         }
         cell.imageView.contentMode = .scaleAspectFit
-        cell.imageView.image = UIImage(named: themes[indexPath.row])
+        cell.imageView.image = UIImage(named: themeImageNames[indexPath.row])
         cell.theme.text = themes[indexPath.row]
         return cell
     }
@@ -32,6 +32,7 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
     var themes = ["Fire", "Water","Earth", "Space"]
+    var themeImageNames = ["fire_player", "water_player", "earth_player", "space_player"]
     
     @IBOutlet weak var themesCollectionView: UICollectionView!
     

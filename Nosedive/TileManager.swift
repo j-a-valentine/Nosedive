@@ -131,7 +131,7 @@ class TileManager {
     func draw(boundColor:UIColor, lineColor:UIColor, finishLineColor:UIColor) {
         var selectedColor = boundColor
         for r in self.tiles {
-            var count = 1
+            var count = 0
             for t in r {
                 if count % 2 == 0 {
                     selectedColor = boundColor
@@ -143,7 +143,7 @@ class TileManager {
                 count+=1
             }
         }
-        self.finishLine?.draw(color: .purple)
+        self.finishLine?.draw(color: finishLineColor)
         
     }
     

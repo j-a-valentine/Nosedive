@@ -11,18 +11,18 @@ import UIKit
 class Theme {
     var pathColor:UIColor
     var barrierColor:UIColor
-    var backgroundImage:UIImage
+    var goalColor:UIColor
     var playerImage:UIImage
     
-    init(pathColor:UIColor, barrierColor:UIColor, backgroundImage:UIImage, playerImage:UIImage) {
+    init(pathColor:UIColor, barrierColor:UIColor, goalColor:UIColor, playerImage:UIImage) {
         self.pathColor = pathColor
         self.barrierColor = barrierColor
-        self.backgroundImage = backgroundImage
+        self.goalColor = goalColor
         self.playerImage = playerImage
     }
     
    convenience init() {
-       self.init(pathColor:.white, barrierColor:.black, backgroundImage:.actions, playerImage:.add)
+       self.init(pathColor:.white, barrierColor:.black, goalColor:.purple, playerImage:.add)
     }
     
 }

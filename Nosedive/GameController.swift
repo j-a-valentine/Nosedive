@@ -21,6 +21,8 @@ class GameController {
     var theme:Theme
     var finishLineGenerated:Bool
     var score:Int
+    var ghostMode:Bool
+    var ghostModeFrame:Int
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -36,6 +38,8 @@ class GameController {
         self.theme = Theme()
         self.finishLineGenerated = false
         self.score = 0
+        self.ghostMode = false
+        self.ghostModeFrame = 0
     }
     
     func beginGame() {
@@ -77,13 +81,17 @@ class GameController {
     }
     
     func updateGameStatus () {
-        if self.tileManager.hasCollisionWithBoundary(player: self.player) {
+        if self.tileManager.hasCollisionWithBoundary(player: self.player)  && !self.ghostMode{
             self.endGame()
             print("Game Over")
         }
         if self.tileManager.hasCollisionWithFinishLine(player: self.player) {
             self.endGame()
             print("You Win")
+        }
+        self.ghostModeFrame += 1
+        if self.ghostModeFrame == 30 {
+            self.ghostModeFrame = 0
         }
     }
     
@@ -99,9 +107,11 @@ class GameController {
     }
     
     func drawGame() {
-        self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:.purple)
-        self.player.draw(color: .red)
-        //self.player.draw(image: theme.playerImage)
+        self.tileManager.draw(boundColor: theme.barrierColor, lineColor: theme.pathColor, finishLineColor:theme.goalColor)
+        if self.ghostModeFrame < 25 {
+            //self.player.draw(color: .red)
+            self.player.draw(image: theme.playerImage)
+        }
     }
     
     func loadTheme(theme:Theme) {

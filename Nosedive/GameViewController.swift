@@ -13,8 +13,10 @@ class GameViewController: UIViewController {
     var scoreLabel:UILabel!
     var gameLoop:Timer!
     var tileData:[[Int]]!
+    var themes:[Theme] = []
     var theme:Theme!
     let userDefaults = UserDefaults.standard
+
     
     
     
@@ -22,13 +24,24 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        let waterImage:UIImage = UIImage(named: "water_player")!
-        self.theme = Theme(pathColor: .black, barrierColor: .white, backgroundImage: waterImage, playerImage: waterImage)
+        loadThemes()
+        selectTheme()
         setGameView()
         gameView.gc.beginGame()
         gameLoop = Timer.scheduledTimer(timeInterval: 1/60, target: self, selector: #selector(nextFrame), userInfo: nil, repeats: gameView.gc.isPlaying)
         
         
+    }
+    
+    func loadThemes() {
+        themes.append(Theme(pathColor: .white, barrierColor: .red, goalColor:.systemPink, playerImage: UIImage(named: "fire_player")!))
+        themes.append(Theme(pathColor: .blue, barrierColor: .white, goalColor:.systemPink, playerImage: UIImage(named: "water_player")!))
+        themes.append(Theme(pathColor: UIColor(red: 135/255, green: 200/255, blue: 235/255, alpha: 1), barrierColor: .green, goalColor:.systemPink, playerImage: UIImage(named: "earth_player")!))
+        themes.append(Theme(pathColor: .white, barrierColor: .black, goalColor:.systemPink, playerImage: UIImage(named: "space_player")!))
+    }
+    
+    func selectTheme() {
+        self.theme = themes[userDefaults.integer(forKey: "theme")]
     }
     
     func setGameView() {
@@ -47,6 +60,7 @@ class GameViewController: UIViewController {
         self.scoreLabel.textColor = .white
         view.addSubview(scoreLabel)
     }
+    
     
     func updateScoreLabel() {
         self.scoreLabel.text = "Score: "+String(self.gameView.gc.score)
