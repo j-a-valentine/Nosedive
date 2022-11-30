@@ -82,6 +82,13 @@
                                     <action selector="storeButtonPress:" destination="zQs-uP-1bJ" eventType="touchUpInside" id="LtU-Ot-IeH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYa-po-4jC">
+                                <rect key="frame" x="135" y="286" width="120" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="skM-dN-9aU"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -100,10 +107,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E8A-2U-eYV"/>
+                    <connections>
+                        <outlet property="coinLabel" destination="DYa-po-4jC" id="e4L-sO-nv3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ib-n1-G5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863.7681159420292" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1863.0769230769231" y="68.957345971563981"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ea6-Op-NM5">

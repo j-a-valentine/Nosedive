@@ -13,6 +13,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var ghostModeButton: UIButton!
     @IBOutlet weak var boostButton: UIButton!
     
+    @IBOutlet weak var coinCounter: UILabel!
     @IBOutlet weak var ghostCounter: UILabel!
     @IBOutlet weak var boostCounter: UILabel!
     // GRAB FROM CORE DATA
@@ -33,6 +34,8 @@ class StoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        coinCounter.text = "Coins: \(UserData.totalCoins)"
+        
     }
     
 

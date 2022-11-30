@@ -8,10 +8,12 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
+    @IBOutlet weak var coinLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        coinLabel.text = "Coins: \(UserData.totalCoins)"
         // Do any additional setup after loading the view.
     }
     
@@ -41,6 +43,7 @@ class MenuViewController: UIViewController {
         self.navigationController?.pushViewController(storeController, animated: true)
         
     }
+    
     
     
     /*

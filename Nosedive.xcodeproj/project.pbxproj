@@ -27,6 +27,7 @@
 		194D4AD7293523D50006B1FE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 194D4AD6293523D50006B1FE /* FirebaseFirestore */; };
 		194D4AD9293523D50006B1FE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 194D4AD8293523D50006B1FE /* FirebaseFirestoreSwift */; };
 		194D4ADB293523D50006B1FE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 194D4ADA293523D50006B1FE /* FirebaseStorage */; };
+		593B8A2F2936FD71008A0DCD /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593B8A2E2936FD71008A0DCD /* UserData.swift */; };
 		59F9ACAC2921E6E4005AFF39 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F9ACAB2921E6E4005AFF39 /* StoreViewController.swift */; };
 		DCD0BBBF291D9AD60097B0CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */; };
 		DCD0BBC1291DA7DA0097B0CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */; };
@@ -51,6 +52,7 @@
 		194D4AC5292317FC0006B1FE /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 		194D4AC9292550F50006B1FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		194D4ACB293522310006B1FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		593B8A2E2936FD71008A0DCD /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		59F9ACAB2921E6E4005AFF39 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				59F9ACAB2921E6E4005AFF39 /* StoreViewController.swift */,
 				194D4AC5292317FC0006B1FE /* LevelsViewController.swift */,
 				194D4AC9292550F50006B1FE /* Theme.swift */,
+				593B8A2E2936FD71008A0DCD /* UserData.swift */,
 			);
 			path = Nosedive;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				DCD0BBC5291DAA6A0097B0CF /* LeadersViewController.swift in Sources */,
 				DCD0BBC1291DA7DA0097B0CF /* GameViewController.swift in Sources */,
+				593B8A2F2936FD71008A0DCD /* UserData.swift in Sources */,
 				194D4ABC291968120006B1FE /* GameController.swift in Sources */,
 				194D4ABA291967EE0006B1FE /* TileManager.swift in Sources */,
 				194D4AA6291965E80006B1FE /* AppDelegate.swift in Sources */,

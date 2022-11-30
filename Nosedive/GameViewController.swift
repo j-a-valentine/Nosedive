@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
             gameLoop.invalidate()
             
             let menuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "menu")
+            UserData.totalCoins += self.gameView.gc.score
             self.navigationController?.pushViewController(menuController, animated: false)
         }
         
