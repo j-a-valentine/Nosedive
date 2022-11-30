@@ -68,6 +68,15 @@ class TileManager {
         self.finishLine?.shift(shiftBy: self.shiftBy)
     }
     
+    func shiftSlow() {
+        for r in self.tiles{
+            for t in r {
+                t.shift(shiftBy:self.shiftBy/2)
+            }
+        }
+        self.finishLine?.shift(shiftBy: self.shiftBy/2)
+    }
+    
     func shiftFull() {
         for r  in self.tiles {
             for t in r {

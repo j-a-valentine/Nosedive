@@ -22,7 +22,12 @@ class GameController {
     var finishLineGenerated:Bool
     var score:Int
     var ghostMode:Bool
+    var ghostRemaining:Int
     var ghostModeFrame:Int
+    var slowMode:Bool
+    var slowRemaining:Int
+    var simpleMode:Bool
+    var simpleRemaining:Int
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -39,7 +44,12 @@ class GameController {
         self.finishLineGenerated = false
         self.score = 0
         self.ghostMode = false
+        self.ghostRemaining = 20
         self.ghostModeFrame = 0
+        self.slowMode = false
+        self.slowRemaining = 800
+        self.simpleMode = false
+        self.simpleRemaining = 20
     }
     
     func beginGame() {
@@ -63,7 +73,13 @@ class GameController {
     func updateGameTiles() {
         
         if self.tileManager.shouldGenerate() {
-            let data = self.levelData.getNextRow()
+            let data = self.levelData.getNextRow(isSimple: self.simpleMode)
+            if self.simpleMode {
+                self.simpleRemaining -= 1
+                if self.simpleRemaining == 0 {
+                    self.simpleMode = false
+                }
+            }
             if data.count != 0 {
                 self.tileManager.generateRow(openCol: data[0], width: data[1])
             }
@@ -76,8 +92,24 @@ class GameController {
         if self.tileManager.shouldDelete() {
             self.tileManager.deleteRow()
             self.score += 1
+            if self.ghostMode {
+                self.ghostRemaining -= 1
+                if ghostRemaining == 0 {
+                    self.ghostMode = false
+                }
+            }
         }
-        self.tileManager.shift()
+        if self.slowMode {
+            self.tileManager.shiftSlow()
+            self.slowRemaining -= 1
+            if self.slowRemaining == 0 {
+                self.slowMode = false
+            }
+        }
+        else {
+            self.tileManager.shift()
+        }
+        
     }
     
     func updateGameStatus () {
@@ -116,6 +148,18 @@ class GameController {
     
     func loadTheme(theme:Theme) {
         self.theme = theme
+    }
+    
+    func activateGhost() {
+        self.ghostMode = true
+    }
+    
+    func activateSlow() {
+        self.slowMode = true
+    }
+    
+    func activateSimple() {
+        self.simpleMode = true
     }
 
 }

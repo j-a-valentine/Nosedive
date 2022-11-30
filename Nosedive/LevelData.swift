@@ -31,12 +31,17 @@ class LevelData {
         self.canGenerate = (tileData.count <= 0)
     }
     
-    func getNextRow() -> [Int]{
+    func getNextRow(isSimple:Bool) -> [Int]{
         while(self.tracker >= self.tileData.count){
             if self.canGenerate == false {
                 return []
             }
-            self.generatePath()
+            if isSimple {
+                self.generateEasyPath()
+            }
+            else {
+                self.generatePath()
+            }
         }
         let data = self.tileData[self.tracker]
         self.tracker+=1
