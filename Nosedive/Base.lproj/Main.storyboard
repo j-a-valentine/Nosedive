@@ -82,6 +82,13 @@
                                     <action selector="storeButtonPress:" destination="zQs-uP-1bJ" eventType="touchUpInside" id="LtU-Ot-IeH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYa-po-4jC">
+                                <rect key="frame" x="135" y="286" width="120" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="skM-dN-9aU"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -100,10 +107,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E8A-2U-eYV"/>
+                    <connections>
+                        <outlet property="coinLabel" destination="DYa-po-4jC" id="e4L-sO-nv3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ib-n1-G5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863.7681159420292" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1863.0769230769231" y="68.957345971563981"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ea6-Op-NM5">
@@ -285,10 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="str-jO-cOL">
-                                <rect key="frame" x="0.0" y="44" width="390" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Zkh-6p-4pX"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="390" height="57.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -351,6 +358,7 @@
                     <connections>
                         <outlet property="boostButton" destination="uVf-VV-Npz" id="WZh-0T-YBu"/>
                         <outlet property="boostCounter" destination="zSg-bf-eIQ" id="gnq-e1-8Mc"/>
+                        <outlet property="coinCounter" destination="i3L-vz-Q3c" id="fFB-9H-UIm"/>
                         <outlet property="ghostCounter" destination="uJY-Ni-suw" id="5ln-xX-ssj"/>
                         <outlet property="ghostModeButton" destination="0ZO-eD-qIE" id="S3U-q9-e4h"/>
                     </connections>
