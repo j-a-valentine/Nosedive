@@ -19,6 +19,10 @@ class GameViewController: UIViewController {
     var themes:[Theme] = []
     var theme:Theme!
     let userDefaults = UserDefaults.standard
+    
+    var hasGhost:Bool! = true
+    var hasSimple:Bool! = true
+    var hasSlow:Bool! = true
 
     
     
@@ -63,41 +67,55 @@ class GameViewController: UIViewController {
         self.scoreLabel.textColor = .white
         view.addSubview(scoreLabel)
         
-        let ghostButtonFrame = CGRect(x:40,y:720, width:80, height:40)
-        self.ghostButton = UIButton(frame: ghostButtonFrame)
-        self.ghostButton.setTitle("Ghost", for: .normal)
-        self.ghostButton.backgroundColor = .black
-        self.ghostButton.setTitleColor(.white, for: .normal)
-        self.ghostButton.addTarget(self, action: #selector(activateGhost), for: .touchUpInside)
-        view.addSubview(self.ghostButton)
+        if hasGhost {
+            let ghostButtonFrame = CGRect(x:40,y:720, width:80, height:40)
+            self.ghostButton = UIButton(frame: ghostButtonFrame)
+            self.ghostButton.setTitle("Ghost", for: .normal)
+            self.ghostButton.backgroundColor = .black
+            self.ghostButton.setTitleColor(.white, for: .normal)
+            self.ghostButton.addTarget(self, action: #selector(activateGhost), for: .touchUpInside)
+            view.addSubview(self.ghostButton)
+        }
         
-        let slowButtonFrame = CGRect(x:160,y:720, width:80, height:40)
-        self.slowButton = UIButton(frame: slowButtonFrame)
-        self.slowButton.setTitle("Slow", for: .normal)
-        self.slowButton.backgroundColor = .black
-        self.slowButton.setTitleColor(.white, for: .normal)
-        self.slowButton.addTarget(self, action: #selector(activateSlow), for: .touchUpInside)
-        view.addSubview(self.slowButton)
-        
-        let simpleButtonFrame = CGRect(x:280,y:720, width:80, height:40)
-        self.simpleButton = UIButton(frame: simpleButtonFrame)
-        self.simpleButton.setTitle("Simple", for: .normal)
-        self.simpleButton.backgroundColor = .black
-        self.simpleButton.setTitleColor(.white, for: .normal)
-        self.simpleButton.addTarget(self, action: #selector(activateSimple), for: .touchUpInside)
-        view.addSubview(self.simpleButton)
+        if hasSlow {
+            let slowButtonFrame = CGRect(x:160,y:720, width:80, height:40)
+            self.slowButton = UIButton(frame: slowButtonFrame)
+            self.slowButton.setTitle("Slow", for: .normal)
+            self.slowButton.backgroundColor = .black
+            self.slowButton.setTitleColor(.white, for: .normal)
+            self.slowButton.addTarget(self, action: #selector(activateSlow), for: .touchUpInside)
+            view.addSubview(self.slowButton)
+        }
+        if self.tileData.count != 0{
+            hasSimple = false
+        }
+        if hasSimple {
+            let simpleButtonFrame = CGRect(x:280,y:720, width:80, height:40)
+            self.simpleButton = UIButton(frame: simpleButtonFrame)
+            self.simpleButton.setTitle("Simple", for: .normal)
+            self.simpleButton.backgroundColor = .black
+            self.simpleButton.setTitleColor(.white, for: .normal)
+            self.simpleButton.addTarget(self, action: #selector(activateSimple), for: .touchUpInside)
+            view.addSubview(self.simpleButton)
+        }
     }
     
     @objc func activateGhost() {
         self.gameView.gc.activateGhost()
+        self.ghostButton.backgroundColor = .clear
+        self.ghostButton.setTitle("", for: .normal)
     }
     
     @objc func activateSlow() {
         self.gameView.gc.activateSlow()
+        self.slowButton.backgroundColor = .clear
+        self.slowButton.setTitle("", for: .normal)
     }
     
     @objc func activateSimple() {
         self.gameView.gc.activateSimple()
+        self.simpleButton.backgroundColor = .clear
+        self.simpleButton.setTitle("", for: .normal)
     }
     
     
