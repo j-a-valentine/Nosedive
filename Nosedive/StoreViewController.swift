@@ -9,6 +9,8 @@ import UIKit
 
 class StoreViewController: UIViewController {
     
+    var firebasefile:FirebaseFile = FirebaseFile()
+    
 
     @IBOutlet weak var ghostModeButton: UIButton!
     @IBOutlet weak var boostButton: UIButton!
@@ -33,6 +35,7 @@ class StoreViewController: UIViewController {
         if(UserData.totalCoins > 30) {
             UserData.ghostCount += 1
             UserData.totalCoins -= 30
+            firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
         updateText()
     }
@@ -41,6 +44,7 @@ class StoreViewController: UIViewController {
         if(UserData.totalCoins > 50) {
             UserData.slowCount += 1
             UserData.totalCoins -= 50
+            firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
         updateText()
     }

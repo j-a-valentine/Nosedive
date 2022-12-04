@@ -9,6 +9,8 @@ import UIKit
 
 class ThemesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let userDefaults = UserDefaults.standard
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return themes.count
     }
@@ -23,11 +25,18 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.image = UIImage(named: themeImageNames[indexPath.row])
         cell.theme.text = themes[indexPath.row]
+        if indexPath.row == userDefaults.integer(forKey: "theme") {
+            cell.backgroundColor = .systemBlue
+        }
+        else {
+            cell.backgroundColor = .clear
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         userDefaults.set(indexPath.row, forKey: "theme")
+        themesCollectionView.reloadData()
     }
     
     
@@ -35,8 +44,6 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var themeImageNames = ["fire_player", "water_player", "earth_player", "space_player"]
     
     @IBOutlet weak var themesCollectionView: UICollectionView!
-    
-    let userDefaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
