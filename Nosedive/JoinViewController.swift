@@ -53,7 +53,7 @@ class JoinViewController: UIViewController {
                     self.returningUserResult.text = "Successful"
                     UserData.Username = Username
                     UserData.totalCoins = b["\(Username)" as NSObject]?["Coins"] as! Int
-                    UserData.HighScore = 0
+                    UserData.HighScore = b["\(Username)" as NSObject]?["High Score"] as! Int
                 }
                 
             });
@@ -102,10 +102,11 @@ class JoinViewController: UIViewController {
                 } else{
                     self.newUserResult.text = "Successfully Created"
                     
-                    let object: [String: Int] = [
+                    let object: [String: Any] = [
                     
                         "Coins": 0,
                         "High Score": 0,
+                        "Username": s
                     ]
                     
                     self.database.child("\(Username)").setValue(object)

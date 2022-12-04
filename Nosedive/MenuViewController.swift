@@ -16,6 +16,8 @@ class MenuViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     
+    @IBOutlet weak var currentHighScore: UILabel!
+    
     @IBOutlet weak var printingName: UILabel!
     
     override func viewDidLoad() {
@@ -24,11 +26,11 @@ class MenuViewController: UIViewController {
         //UserData.HighScore =
         //coinLabel.text = "Coins: \(UserData.totalCoins)"
         
-        let object: [String: Int] = [
+        let object: [String: Any] = [
         
             "Coins": 0,
             "High Score": 0,
-            "Random_Int": 0
+            "Username": "Default_User"
         ]
         
         database.child("Default_User").setValue(object)
@@ -88,6 +90,7 @@ class MenuViewController: UIViewController {
                 UserData.HighScore = j
                 var s = ""
                 s = "\(j)"
+                self.currentHighScore.text = "Current High Score: \(s)"
                 //self.coinLabel.text = "Coins: \(s)"
                 //let temp = "Coins:" + String(j)
             });
@@ -98,6 +101,7 @@ class MenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         getCoins(Username: "\(UserData.Username)")
+        getHighScore(Username: "\(UserData.Username)")
         printingName.text = "\(UserData.Username)!"
     }
     
