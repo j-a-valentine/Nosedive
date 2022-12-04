@@ -9,4 +9,9 @@ import Foundation
 
 struct UserData {
     static var totalCoins = 0
+    static var HighScore = 0
+    static var Username = "Default_User"
+    static var ghostCount = 0
+    static var easyCount = 0
+    static var slowCount = 0
 }
