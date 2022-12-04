@@ -139,6 +139,9 @@ class GameViewController: UIViewController {
         updateScoreLabel()
         if gameView.gc.gameOver {
             gameLoop.invalidate()
+            if tileData.count == 0{
+                updateHighScore(score: gameView.gc.score)
+            }
             
             let menuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "menu")
             UserData.totalCoins += self.gameView.gc.score
@@ -146,6 +149,11 @@ class GameViewController: UIViewController {
             self.navigationController?.pushViewController(menuController, animated: false)
         }
         
+    }
+    
+    func updateHighScore(score:Int) {
+        //if score > {current score in database}
+            //put score in database
     }
     
     
