@@ -27,15 +27,10 @@ class LeadersViewController: UIViewController {
     
     private let database = Database.database().reference()
     
-    public func getCoins(Username: String) -> Int{
-        
-        //var object1: AnyObject!;
+    public func getTopScores() -> Int{
         
         
-        var highscore: AnyObject!;
-
-        //highscore = -1;
-            
+        //var highscore: AnyObject!;
             
             database.getData(completion:  { error, snapshot in
               guard error == nil else {
@@ -43,8 +38,14 @@ class LeadersViewController: UIViewController {
                   //highscore = -2;
                 return;
               }
-                highscore = snapshot?.value as AnyObject;
-               
+                //highscore = snapshot?.value as AnyObject;
+                
+                let a = snapshot?.value as! NSDictionary
+    
+                let b = a as Dictionary
+          
+                
+                
             });
    
         return -1;

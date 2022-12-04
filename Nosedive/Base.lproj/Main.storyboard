@@ -113,6 +113,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current High Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsq-rs-1Ka">
+                                <rect key="frame" x="87" y="315" width="217" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="skM-dN-9aU"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -133,6 +140,7 @@
                     <navigationItem key="navigationItem" id="E8A-2U-eYV"/>
                     <connections>
                         <outlet property="coinLabel" destination="DYa-po-4jC" id="e4L-sO-nv3"/>
+                        <outlet property="currentHighScore" destination="Tsq-rs-1Ka" id="DPy-br-MK0"/>
                         <outlet property="printingName" destination="88g-rk-Idz" id="2S9-2c-Jlz"/>
                     </connections>
                 </viewController>

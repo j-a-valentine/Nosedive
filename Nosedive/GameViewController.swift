@@ -154,6 +154,10 @@ class GameViewController: UIViewController {
     func updateHighScore(score:Int) {
         //if score > {current score in database}
             //put score in database
+        if(score > UserData.HighScore){
+            UserData.HighScore = score
+            firebasefile.updateHighScore(newHighScore: UserData.HighScore, Username: UserData.Username)
+        }
     }
     
     

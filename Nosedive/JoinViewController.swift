@@ -53,7 +53,7 @@ class JoinViewController: UIViewController {
                     self.returningUserResult.text = "Successful"
                     UserData.Username = Username
                     UserData.totalCoins = b["\(Username)" as NSObject]?["Coins"] as! Int
-                    UserData.HighScore = 0
+                    UserData.HighScore = b["\(Username)" as NSObject]?["High Score"] as! Int
                 }
                 
             });
