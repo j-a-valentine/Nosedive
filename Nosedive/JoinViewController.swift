@@ -102,10 +102,11 @@ class JoinViewController: UIViewController {
                 } else{
                     self.newUserResult.text = "Successfully Created"
                     
-                    let object: [String: Int] = [
+                    let object: [String: Any] = [
                     
                         "Coins": 0,
                         "High Score": 0,
+                        "Username": s
                     ]
                     
                     self.database.child("\(Username)").setValue(object)
