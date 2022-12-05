@@ -43,10 +43,10 @@ class GameViewController: UIViewController {
     }
     
     func loadThemes() {
-        themes.append(Theme(pathColor: .white, barrierColor: .red, goalColor:.systemPink, playerImage: UIImage(named: "fire_player")!))
-        themes.append(Theme(pathColor: .blue, barrierColor: .white, goalColor:.systemPink, playerImage: UIImage(named: "water_player")!))
-        themes.append(Theme(pathColor: UIColor(red: 135/255, green: 200/255, blue: 235/255, alpha: 1), barrierColor: .green, goalColor:.systemPink, playerImage: UIImage(named: "earth_player")!))
-        themes.append(Theme(pathColor: .white, barrierColor: .black, goalColor:.systemPink, playerImage: UIImage(named: "space_player")!))
+        themes.append(Theme(pathColor: .white, barrierColor: .red, goalColor:.orange, playerImage: UIImage(named: "fire_player")!))
+        themes.append(Theme(pathColor: .blue, barrierColor: .white, goalColor:.systemBlue, playerImage: UIImage(named: "water_player")!))
+        themes.append(Theme(pathColor: UIColor(red: 135/255, green: 200/255, blue: 235/255, alpha: 1), barrierColor: .green, goalColor:.systemGreen, playerImage: UIImage(named: "earth_player")!))
+        themes.append(Theme(pathColor: .white, barrierColor: .black, goalColor:.lightGray, playerImage: UIImage(named: "space_player")!))
     }
     
     func selectTheme() {
