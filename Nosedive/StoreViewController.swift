@@ -41,11 +41,11 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func ghostPressed(_ sender: Any) {
-        if(UserData.totalCoins >= 30) {
+        if(UserData.totalCoins >= 50) {
             print("Ghost Bought")
 
             UserData.ghostCount += 1
-            UserData.totalCoins -= 30
+            UserData.totalCoins -= 50
             firebasefile.updatePowerUps(addGhost: true, addSimple: false, addSlow: false, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
@@ -54,11 +54,11 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func boostPressed(_ sender: Any) {
-        if(UserData.totalCoins >= 50) {
+        if(UserData.totalCoins >= 30) {
             print("Boost Bought")
 
             UserData.slowCount += 1
-            UserData.totalCoins -= 50
+            UserData.totalCoins -= 30
             firebasefile.updatePowerUps(addGhost: false, addSimple: false, addSlow: true, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
