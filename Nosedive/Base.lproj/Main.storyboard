@@ -586,7 +586,7 @@
                                     <constraint firstAttribute="height" constant="185" id="o96-Sb-U1R"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Purchse (30 Coins)">
+                                <buttonConfiguration key="configuration" style="filled" title="Purchase (30 Coins)">
                                     <color key="baseBackgroundColor" red="0.76862752440000004" green="0.40432128835709247" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>

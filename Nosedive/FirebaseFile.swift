@@ -19,7 +19,10 @@ public class FirebaseFile {
         
             "Coins": 25,
             "High Score": 25,
-            "Random_Int": 20
+            "Random_Int": 20,
+            "GhostModes": 0,
+            "SimpleModes": 0,
+            "SlowModes": 0
         ]
         
         database.child("\(Username)").setValue(object)
@@ -36,6 +39,40 @@ public class FirebaseFile {
         database.child("\(Username)/High Score").setValue(newHighScore)
     }
     
+    public func updatePowerUps(addGhost: Int, addSimple: Int, addSlow: Int, theUsername: String){
+        
+        let ghostTotal = addGhost + getPowerUps(Username: theUsername)[0]
+        let simpleTotal = addSlow + getPowerUps(Username: theUsername)[1]
+        let slowTotal = addSlow + getPowerUps(Username: theUsername)[2]
+
+        
+        database.child("\(theUsername)/GhostModes").setValue(ghostTotal)
+        database.child("\(theUsername)/SimpleModes").setValue(simpleTotal)
+        database.child("\(theUsername)/SlowModes").setValue(slowTotal)
+    }
+    
+    public func getPowerUps(Username: String) -> Array<Int>{
+        
+        var object1: AnyObject!;
+        var powerArr: [Int] = [3]
+        
+        database.child("\(Username)").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            object1 = snapshot?.value as? AnyObject;
+        });
+        
+        powerArr.append(object1?["GhostModes"] as? Int ?? -1);
+        powerArr.append(object1?["SimpleModes"] as? Int ?? -1);
+        powerArr.append(object1?["SlowModes"] as? Int ?? -1);
+
+        return powerArr;
+    }
+    
+    
+    
     public func getCoins(Username: String) -> Int{
         
         var object1: AnyObject!;
@@ -48,7 +85,7 @@ public class FirebaseFile {
             object1 = snapshot?.value as? AnyObject;
         });
         
-        let coin = object1?["Coins"] as? Int ?? -1;
+        let coin = object1?["Coins"] as? Int ?? 0;
         
         print("Coins" + String(coin));
         
