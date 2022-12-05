@@ -125,26 +125,5 @@ public class FirebaseFile {
         
         return coin;
     }
-    
-    public func getHighScore(Username: String) -> Int{
-        
-        //var object1: AnyObject!;
-        
-        var highscore: AnyObject!;
 
-        //highscore = -1;
-        
-        
-            database.getData(completion:  { error, snapshot in
-              guard error == nil else {
-                print(error!.localizedDescription)
-                  //highscore = -2;
-                return;
-              }
-                highscore = snapshot?.value as? AnyObject;
-
-            });
-   
-        return -1;
-    }
 }

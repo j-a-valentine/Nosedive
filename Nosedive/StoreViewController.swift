@@ -28,7 +28,7 @@ class StoreViewController: UIViewController {
     
     
     @IBAction func easyPressed(_ sender: Any) {
-        if(UserData.totalCoins > 15) {
+        if(UserData.totalCoins >= 15) {
             print("Easy Bought")
             UserData.easyCount += 1
             UserData.totalCoins -= 15
@@ -41,7 +41,7 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func ghostPressed(_ sender: Any) {
-        if(UserData.totalCoins > 30) {
+        if(UserData.totalCoins >= 30) {
             print("Ghost Bought")
 
             UserData.ghostCount += 1
@@ -54,7 +54,7 @@ class StoreViewController: UIViewController {
     }
     
     @IBAction func boostPressed(_ sender: Any) {
-        if(UserData.totalCoins > 50) {
+        if(UserData.totalCoins >= 50) {
             print("Boost Bought")
 
             UserData.slowCount += 1
@@ -103,7 +103,6 @@ class StoreViewController: UIViewController {
               }
                 highscore = snapshot?.value as AnyObject;
                 let i = highscore.value(forKey: "\(Username)") as AnyObject
-                print(i)
                 let j = i["Coins"] as! Int
                 let simple = i["SimpleModes"] as? Int ?? 0
                 let ghost = i["GhostModes"] as? Int ?? 0
