@@ -64,21 +64,21 @@ public class FirebaseFile {
             curGhost = UserData.ghostCount - 1
             database.child("\(theUsername)/GhostModes").setValue(curGhost)
             UserData.ghostUsed = false
+            UserData.ghostCount = curGhost
         }
         if(UserData.slowUsed) {
             curSlow = UserData.slowCount - 1
             database.child("\(theUsername)/SlowModes").setValue(curSlow)
             UserData.slowUsed = false
+            UserData.slowCount = curSlow
         }
         if(UserData.easyUsed) {
             curSimple = UserData.easyCount - 1
             database.child("\(theUsername)/SimpleModes").setValue(curSimple)
             UserData.easyUsed = false
+            UserData.easyCount = curSimple
         }
         
-        UserData.ghostCount = curGhost
-        UserData.easyCount = curSimple
-        UserData.slowCount = curSlow
 
         
     }
