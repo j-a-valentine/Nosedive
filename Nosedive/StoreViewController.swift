@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class StoreViewController: UIViewController {
+    
+    private let database = Database.database().reference()
+
     
     var firebasefile:FirebaseFile = FirebaseFile()
     
@@ -24,9 +29,10 @@ class StoreViewController: UIViewController {
     
     @IBAction func easyPressed(_ sender: Any) {
         if(UserData.totalCoins > 15) {
+            print("Easy Bought")
             UserData.easyCount += 1
             UserData.totalCoins -= 15
-            firebasefile.updatePowerUps(addGhost: 0, addSimple: 1, addSlow: 0, theUsername: UserData.Username)
+            firebasefile.updatePowerUps(addGhost: false, addSimple: true, addSlow: false, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
 
         }
@@ -36,9 +42,11 @@ class StoreViewController: UIViewController {
     
     @IBAction func ghostPressed(_ sender: Any) {
         if(UserData.totalCoins > 30) {
+            print("Ghost Bought")
+
             UserData.ghostCount += 1
             UserData.totalCoins -= 30
-            firebasefile.updatePowerUps(addGhost: 1, addSimple: 0, addSlow: 0, theUsername: UserData.Username)
+            firebasefile.updatePowerUps(addGhost: true, addSimple: false, addSlow: true, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
 
@@ -47,9 +55,11 @@ class StoreViewController: UIViewController {
     
     @IBAction func boostPressed(_ sender: Any) {
         if(UserData.totalCoins > 50) {
+            print("Boost Bought")
+
             UserData.slowCount += 1
             UserData.totalCoins -= 50
-            firebasefile.updatePowerUps(addGhost: 0, addSimple: 0, addSlow: 1, theUsername: UserData.Username)
+            firebasefile.updatePowerUps(addGhost: false, addSimple: false, addSlow: true, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
         updateText()
@@ -57,7 +67,7 @@ class StoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firebasefile.updatePowerUps(addGhost: 0, addSimple: 0, addSlow: 0, theUsername: UserData.Username)
+        firebasefile.updatePowerUps(addGhost: false, addSimple: false, addSlow: false, theUsername: UserData.Username)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         UserData.totalCoins = firebasefile.getCoins(Username: UserData.Username)
         updateText()
@@ -68,16 +78,49 @@ class StoreViewController: UIViewController {
     }
     
     func updateText() {
-        let powerArr = firebasefile.getPowerUps(Username: UserData.Username)
-        let coins = firebasefile.getCoins(Username: UserData.Username)
+        getInfo(Username: UserData.Username)
         print(UserData.Username)
-        coinCounter.text = "Coins: \(coins)"
-        boostCounter.text = "Owned: \(powerArr[2])"
-        ghostCounter.text = "Owned: \(powerArr[0])"
-        easyCounter.text = "Owned: \(powerArr[1])"
+
 
 
     }
+    
+    
+    public func getInfo(Username: String){
+        
+        //var object1: AnyObject!;
+        
+        var highscore: AnyObject!;
+
+        //highscore = -1;
+            
+            
+            database.getData(completion:  { error, snapshot in
+              guard error == nil else {
+                print(error!.localizedDescription)
+                  //highscore = -2;
+                return;
+              }
+                highscore = snapshot?.value as AnyObject;
+                let i = highscore.value(forKey: "\(Username)") as AnyObject
+                print(i)
+                let j = i["Coins"] as! Int
+                let simple = i["SimpleModes"] as! Int
+                let ghost = i["GhostModes"] as! Int
+                let slow = i["SlowModes"] as! Int
+
+                UserData.totalCoins = j
+                var s = ""
+                s = "\(j)"
+                self.coinCounter.text = "Coins: \(s)"
+                self.boostCounter.text = "Owned: \(slow)"
+                self.ghostCounter.text = "Owned: \(ghost)"
+                self.easyCounter.text = "Owned: \(simple)"
+                
+                //let temp = "Coins:" + String(j)
+            });
+    }
+    
     
     
 

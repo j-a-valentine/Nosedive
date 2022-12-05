@@ -12,6 +12,10 @@ import FirebaseDatabase
 public class FirebaseFile {
     
     private let database = Database.database().reference()
+    private var curGhost: Int = 0
+    private var curSimple: Int = 0
+    private var curSlow: Int = 0
+
     
     public func addNewUser(Username: String){
         
@@ -39,37 +43,47 @@ public class FirebaseFile {
         database.child("\(Username)/High Score").setValue(newHighScore)
     }
     
-    public func updatePowerUps(addGhost: Int, addSimple: Int, addSlow: Int, theUsername: String){
+    public func updatePowerUps(addGhost: Bool, addSimple: Bool, addSlow: Bool, theUsername: String){
         
-        let ghostTotal = addGhost + getPowerUps(Username: theUsername)[0]
-        let simpleTotal = addSlow + getPowerUps(Username: theUsername)[1]
-        let slowTotal = addSlow + getPowerUps(Username: theUsername)[2]
+        getPowers(theUsername: theUsername)
+        
+        if(addGhost) {
+            curGhost += 1
+        }
+        if(addSlow) {
+            curSlow += 1
+        }
+        if(addSimple) {
+            curSimple += 1
+        }
 
         
-        database.child("\(theUsername)/GhostModes").setValue(ghostTotal)
-        database.child("\(theUsername)/SimpleModes").setValue(simpleTotal)
-        database.child("\(theUsername)/SlowModes").setValue(slowTotal)
+        database.child("\(theUsername)/GhostModes").setValue(curGhost)
+        database.child("\(theUsername)/SimpleModes").setValue(curSimple)
+        database.child("\(theUsername)/SlowModes").setValue(curSlow)
     }
     
-    public func getPowerUps(Username: String) -> Array<Int>{
+    private func getPowers(theUsername: String) {
         
-        var object1: AnyObject!;
-        var powerArr: [Int] = [3]
+        var highscore: AnyObject!;
         
-        database.child("\(Username)").getData(completion:  { error, snapshot in
+        database.getData(completion:  { error, snapshot in
           guard error == nil else {
             print(error!.localizedDescription)
+              //highscore = -2;
             return;
           }
-            object1 = snapshot?.value as? AnyObject;
+            highscore = snapshot?.value as AnyObject;
+            let i = highscore.value(forKey: "\(theUsername)") as AnyObject
+            self.curSimple = i["SimpleModes"] as! Int
+            self.curGhost = i["GhostModes"] as! Int
+            self.curSlow = i["SlowModes"] as! Int
+            
+
         });
         
-        powerArr.append(object1?["GhostModes"] as? Int ?? -1);
-        powerArr.append(object1?["SimpleModes"] as? Int ?? -1);
-        powerArr.append(object1?["SlowModes"] as? Int ?? -1);
-
-        return powerArr;
     }
+
     
     
     
