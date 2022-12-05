@@ -79,6 +79,7 @@ public class FirebaseFile {
             UserData.easyCount = curSimple
         }
         
+        getPowers(theUsername: theUsername)
 
         
     }
