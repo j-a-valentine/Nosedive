@@ -34,10 +34,16 @@ class MenuViewController: UIViewController {
         ]
         
         database.child("Default_User").setValue(object)
-        
-        getCoins(Username: "\(UserData.Username)")
-        getHighScore(Username: "\(UserData.Username)")
-        printingName.text = "\(UserData.Username)!"
+        if let username = UserDefaults.standard.string(forKey: "curUser") {
+            UserData.Username=username
+            getCoins(Username: "\(username)")
+            getHighScore(Username: "\(username)")
+            printingName.text = "\(username)!"
+        }else{
+            getCoins(Username: "\(UserData.Username)")
+            getHighScore(Username: "\(UserData.Username)")
+            printingName.text = "\(UserData.Username)!"
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -58,6 +64,7 @@ class MenuViewController: UIViewController {
               }
                 highscore = snapshot?.value as AnyObject;
                 let i = highscore.value(forKey: "\(Username)") as AnyObject
+                print(i)
                 let j = i["Coins"] as! Int
                 UserData.totalCoins = j
                 var s = ""

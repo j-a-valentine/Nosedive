@@ -630,7 +630,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coins: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3L-vz-Q3c">
-                                <rect key="frame" x="130" y="141.33333333333334" width="130" height="40"/>
+                                <rect key="frame" x="130" y="158" width="130" height="40"/>
                                 <color key="backgroundColor" red="0.36871245415478243" green="0.58976320876288657" blue="0.41127617690229318" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="49H-lz-t6b"/>
@@ -707,7 +707,7 @@
                             <constraint firstItem="95K-8x-8s3" firstAttribute="leading" secondItem="543-O4-MQy" secondAttribute="leadingMargin" constant="90" id="Qnf-n7-h3G"/>
                             <constraint firstItem="3FL-ob-Kk5" firstAttribute="top" secondItem="zSg-bf-eIQ" secondAttribute="bottom" constant="16" id="S6H-Th-x4Q"/>
                             <constraint firstItem="uJY-Ni-suw" firstAttribute="leading" secondItem="R7e-v2-eVh" secondAttribute="leading" constant="20" id="SSz-Fp-2uU"/>
-                            <constraint firstItem="i3L-vz-Q3c" firstAttribute="top" secondItem="str-jO-cOL" secondAttribute="bottom" constant="40" id="Uu8-gl-74r"/>
+                            <constraint firstItem="i3L-vz-Q3c" firstAttribute="bottom" secondItem="QAB-Hk-WQd" secondAttribute="top" constant="-5" id="Uu8-gl-74r"/>
                             <constraint firstItem="0ZO-eD-qIE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3FL-ob-Kk5" secondAttribute="trailing" constant="8" symbolic="YES" id="XIQ-V9-9hD"/>
                             <constraint firstItem="uVf-VV-Npz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zSg-bf-eIQ" secondAttribute="trailing" constant="8" symbolic="YES" id="YeM-nC-Mdw"/>
                             <constraint firstItem="0ZO-eD-qIE" firstAttribute="top" secondItem="uVf-VV-Npz" secondAttribute="bottom" constant="16" id="ZYM-RT-gMI"/>

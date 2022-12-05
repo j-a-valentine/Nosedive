@@ -50,6 +50,7 @@ class JoinViewController: UIViewController {
                 if(b["\(s)" as NSObject] == nil){
                     self.returningUserResult.text = "User not Found"
                 } else{
+                    UserDefaults.standard.set("\(Username)", forKey: "curUser")
                     self.returningUserResult.text = "Successful"
                     UserData.Username = Username
                     UserData.totalCoins = b["\(Username)" as NSObject]?["Coins"] as! Int
@@ -98,6 +99,7 @@ class JoinViewController: UIViewController {
                 if(b["\(s)" as NSObject] != nil){
                     self.newUserResult.text = "Username Already Exists"
                 } else{
+                    UserDefaults.standard.set("\(Username)", forKey: "curUser")
                     self.newUserResult.text = "Successfully Created"
                     
                     let object: [String: Any] = [

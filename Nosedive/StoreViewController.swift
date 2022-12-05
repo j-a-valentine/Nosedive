@@ -59,7 +59,7 @@ class StoreViewController: UIViewController {
         super.viewDidLoad()
         firebasefile.updatePowerUps(addGhost: 0, addSimple: 0, addSlow: 0, theUsername: UserData.Username)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        UserData.totalCoins = firebasefile.getCoins(Username: UserData.Username) + 1000
+        UserData.totalCoins = firebasefile.getCoins(Username: UserData.Username)
         updateText()
     }
     
@@ -68,7 +68,6 @@ class StoreViewController: UIViewController {
     }
     
     func updateText() {
-        firebasefile.updateCoins(newCoin: 0, Username: UserData.Username)
         let powerArr = firebasefile.getPowerUps(Username: UserData.Username)
         coinCounter.text = "Coins: \(UserData.totalCoins)"
         boostCounter.text = "Owned: \(powerArr[2])"

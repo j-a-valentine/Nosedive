@@ -107,7 +107,7 @@ public class FirebaseFile {
                   //highscore = -2;
                 return;
               }
-                highscore = snapshot?.value as AnyObject;
+                highscore = snapshot?.value as? AnyObject;
 
             });
    
