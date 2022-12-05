@@ -98,6 +98,12 @@ class MenuViewController: UIViewController {
                 self.currentHighScore.text = "Current High Score: \(s)"
                 //self.coinLabel.text = "Coins: \(s)"
                 //let temp = "Coins:" + String(j)
+                
+                UserData.easyCount = i["SimpleModes"] as? Int ?? 0
+                UserData.ghostCount = i["GhostModes"] as? Int ?? 0
+                UserData.slowCount = i["SlowModes"] as? Int ?? 0
+                
+                
             });
     }
     

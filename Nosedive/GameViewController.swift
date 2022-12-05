@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class GameViewController: UIViewController {
 
@@ -25,7 +27,8 @@ class GameViewController: UIViewController {
     var hasSlow:Bool! = true
 
     var firebasefile:FirebaseFile = FirebaseFile()
-    
+    private let database = Database.database().reference()
+
     
     
     override func viewDidLoad() {
@@ -36,7 +39,6 @@ class GameViewController: UIViewController {
         setGameView()
         gameView.gc.beginGame()
         gameLoop = Timer.scheduledTimer(timeInterval: 1/60, target: self, selector: #selector(nextFrame), userInfo: nil, repeats: gameView.gc.isPlaying)
-        
         
     }
     
@@ -52,7 +54,7 @@ class GameViewController: UIViewController {
     }
     
     func setGameView() {
-        
+        getInfo(Username: UserData.Username)
         let frame = CGRect(x:0, y:100, width:self.view.frame.width, height:750)
         gameView = GameView(frame: frame)
         gameView.gc.levelData.setLevelData(tileData: self.tileData)
@@ -98,6 +100,7 @@ class GameViewController: UIViewController {
             hasSimple = false
         }
         if hasSimple {
+            print("getting to has simple")
             let simpleButtonFrame = CGRect(x:280,y:720, width:80, height:40)
             self.simpleButton = UIButton(frame: simpleButtonFrame)
             self.simpleButton.setTitle("Simple", for: .normal)
@@ -174,6 +177,17 @@ class GameViewController: UIViewController {
             UserData.HighScore = score
             firebasefile.updateHighScore(newHighScore: UserData.HighScore, Username: UserData.Username)
         }
+    }
+    
+    
+    public func getInfo(Username: String){
+
+        if(UserData.easyCount <= 0) { self.hasSimple = false }
+        if(UserData.ghostCount <= 0) { self.hasGhost = false}
+        if(UserData.slowCount <= 0) { self.hasSlow = false}
+
+                
+                //let temp = "Coins:" + String(j)
     }
     
     

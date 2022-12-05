@@ -46,7 +46,7 @@ class StoreViewController: UIViewController {
 
             UserData.ghostCount += 1
             UserData.totalCoins -= 30
-            firebasefile.updatePowerUps(addGhost: true, addSimple: false, addSlow: true, theUsername: UserData.Username)
+            firebasefile.updatePowerUps(addGhost: true, addSimple: false, addSlow: false, theUsername: UserData.Username)
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
         }
 
@@ -105,9 +105,9 @@ class StoreViewController: UIViewController {
                 let i = highscore.value(forKey: "\(Username)") as AnyObject
                 print(i)
                 let j = i["Coins"] as! Int
-                let simple = i["SimpleModes"] as! Int
-                let ghost = i["GhostModes"] as! Int
-                let slow = i["SlowModes"] as! Int
+                let simple = i["SimpleModes"] as? Int ?? 0
+                let ghost = i["GhostModes"] as? Int ?? 0
+                let slow = i["SlowModes"] as? Int ?? 0
 
                 UserData.totalCoins = j
                 var s = ""

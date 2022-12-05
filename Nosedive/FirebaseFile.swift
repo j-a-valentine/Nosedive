@@ -49,18 +49,18 @@ public class FirebaseFile {
         
         if(addGhost) {
             curGhost += 1
+            database.child("\(theUsername)/GhostModes").setValue(curGhost)
         }
         if(addSlow) {
             curSlow += 1
+            database.child("\(theUsername)/SlowModes").setValue(curSlow)
         }
         if(addSimple) {
             curSimple += 1
+            database.child("\(theUsername)/SimpleModes").setValue(curSimple)
         }
 
         
-        database.child("\(theUsername)/GhostModes").setValue(curGhost)
-        database.child("\(theUsername)/SimpleModes").setValue(curSimple)
-        database.child("\(theUsername)/SlowModes").setValue(curSlow)
     }
     
     private func getPowers(theUsername: String) {
@@ -75,9 +75,9 @@ public class FirebaseFile {
           }
             highscore = snapshot?.value as AnyObject;
             let i = highscore.value(forKey: "\(theUsername)") as AnyObject
-            self.curSimple = i["SimpleModes"] as! Int
-            self.curGhost = i["GhostModes"] as! Int
-            self.curSlow = i["SlowModes"] as! Int
+            self.curSimple = i["SimpleModes"] as? Int ?? 0
+            self.curGhost = i["GhostModes"] as? Int ?? 0
+            self.curSlow = i["SlowModes"] as? Int ?? 0
             
 
         });
@@ -99,7 +99,7 @@ public class FirebaseFile {
             object1 = snapshot?.value as? AnyObject;
         });
         
-        let coin = object1?["Coins"] as? Int ?? 0;
+        let coin = object1?["Coins"] as? Int ?? 0
         
         print("Coins" + String(coin));
         
