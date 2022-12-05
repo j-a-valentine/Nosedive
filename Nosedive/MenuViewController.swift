@@ -30,7 +30,10 @@ class MenuViewController: UIViewController {
         
             "Coins": 0,
             "High Score": 0,
-            "Username": "Default_User"
+            "Username": "Default_User",
+            "GhostModes": 0,
+            "SimpleModes": 0,
+            "SlowModes": 0
         ]
         
         database.child("Default_User").setValue(object)
@@ -64,7 +67,6 @@ class MenuViewController: UIViewController {
               }
                 highscore = snapshot?.value as AnyObject;
                 let i = highscore.value(forKey: "\(Username)") as AnyObject
-                print(i)
                 let j = i["Coins"] as! Int
                 UserData.totalCoins = j
                 var s = ""
@@ -145,6 +147,7 @@ class MenuViewController: UIViewController {
     
     
     
+    
     /*
     // MARK: - Navigation
 
@@ -154,5 +157,8 @@ class MenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
 
 }

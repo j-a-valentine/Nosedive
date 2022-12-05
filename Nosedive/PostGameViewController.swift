@@ -9,6 +9,7 @@ import UIKit
 
 class PostGameViewController: UIViewController {
     
+    var firebasefile:FirebaseFile = FirebaseFile()
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     var score = 0
@@ -24,6 +25,7 @@ class PostGameViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.showScore()
         self.setTitle()
+        firebasefile.updatePowerUps(addGhost: false, addSimple: false, addSlow: false, theUsername: UserData.Username)
     }
     
     func showScore(){

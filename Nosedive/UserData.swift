@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreImage
 
 struct UserData {
     static var totalCoins = 0
@@ -14,4 +15,8 @@ struct UserData {
     static var ghostCount = 0
     static var easyCount = 0
     static var slowCount = 0
+    static var slowUsed =  false
+    static var easyUsed = false
+    static var ghostUsed = false
+
 }

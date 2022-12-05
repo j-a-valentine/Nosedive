@@ -155,14 +155,17 @@ class GameController {
     
     func activateGhost() {
         self.ghostMode = true
+        UserData.ghostUsed = true
     }
     
     func activateSlow() {
         self.slowMode = true
+        UserData.slowUsed = true
     }
     
     func activateSimple() {
         self.simpleMode = true
+        UserData.easyUsed = true
     }
 
 }
