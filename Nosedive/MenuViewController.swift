@@ -41,7 +41,7 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    public func getCoins(Username: String) -> Int{
+    public func getCoins(Username: String){
         
         //var object1: AnyObject!;
         
@@ -65,11 +65,9 @@ class MenuViewController: UIViewController {
                 self.coinLabel.text = "Coins: \(s)"
                 //let temp = "Coins:" + String(j)
             });
-   
-        return -1;
     }
     
-    public func getHighScore(Username: String) -> Int{
+    public func getHighScore(Username: String){
         
         //var object1: AnyObject!;
         
@@ -94,8 +92,6 @@ class MenuViewController: UIViewController {
                 //self.coinLabel.text = "Coins: \(s)"
                 //let temp = "Coins:" + String(j)
             });
-   
-        return -1;
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,8 +113,8 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func leaderboardButtonPress(_ sender: UIButton) {
-        guard let themeController = self.storyboard?.instantiateViewController(withIdentifier: "leaders") else{return}
-        self.navigationController?.pushViewController(themeController, animated: true)
+        guard let leaderController = self.storyboard?.instantiateViewController(withIdentifier: "leaders") else{return}
+        self.navigationController?.pushViewController(leaderController, animated: true)
     }
     
     @IBAction func storeButtonPress(_ sender: Any) {

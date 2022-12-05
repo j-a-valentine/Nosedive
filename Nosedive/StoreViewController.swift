@@ -53,9 +53,14 @@ class StoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         updateText()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     func updateText() {
         coinCounter.text = "Coins: \(UserData.totalCoins)"
         boostCounter.text = "Owned: \(bCount)"

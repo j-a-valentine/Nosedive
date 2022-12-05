@@ -48,12 +48,15 @@ class ThemesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         themesCollectionView.dataSource = self
         themesCollectionView.delegate = self
         themesCollectionView.backgroundColor = UIColor.clear
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
 

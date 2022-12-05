@@ -31,6 +31,7 @@
 		59F9ACAC2921E6E4005AFF39 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F9ACAB2921E6E4005AFF39 /* StoreViewController.swift */; };
 		812F2231293AEC370046C56C /* FirebaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F2230293AEC370046C56C /* FirebaseFile.swift */; };
 		812F5CDA293C3AEB00AD64E1 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5CD9293C3AEB00AD64E1 /* JoinViewController.swift */; };
+		DCC6035E293D69BB001A667A /* PostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6035D293D69BB001A667A /* PostGameViewController.swift */; };
 		DCD0BBBF291D9AD60097B0CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */; };
 		DCD0BBC1291DA7DA0097B0CF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */; };
 		DCD0BBC3291DAA5F0097B0CF /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0BBC2291DAA5F0097B0CF /* ThemesViewController.swift */; };
@@ -58,6 +59,7 @@
 		59F9ACAB2921E6E4005AFF39 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		812F2230293AEC370046C56C /* FirebaseFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFile.swift; sourceTree = "<group>"; };
 		812F5CD9293C3AEB00AD64E1 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		DCC6035D293D69BB001A667A /* PostGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGameViewController.swift; sourceTree = "<group>"; };
 		DCD0BBBE291D9AD60097B0CF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DCD0BBC0291DA7DA0097B0CF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DCD0BBC2291DAA5F0097B0CF /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				812F2230293AEC370046C56C /* FirebaseFile.swift */,
 				593B8A2E2936FD71008A0DCD /* UserData.swift */,
 				812F5CD9293C3AEB00AD64E1 /* JoinViewController.swift */,
+				DCC6035D293D69BB001A667A /* PostGameViewController.swift */,
 			);
 			path = Nosedive;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				194D4AC0291968920006B1FE /* Player.swift in Sources */,
 				194D4AC6292317FC0006B1FE /* LevelsViewController.swift in Sources */,
 				194D4ACA292550F50006B1FE /* Theme.swift in Sources */,
+				DCC6035E293D69BB001A667A /* PostGameViewController.swift in Sources */,
 				194D4ABE291968410006B1FE /* GameView.swift in Sources */,
 				194D4AA8291965E80006B1FE /* SceneDelegate.swift in Sources */,
 			);

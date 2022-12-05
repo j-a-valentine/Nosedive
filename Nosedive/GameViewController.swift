@@ -143,10 +143,13 @@ class GameViewController: UIViewController {
                 updateHighScore(score: gameView.gc.score)
             }
             
-            let menuController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "menu")
+            
             UserData.totalCoins += self.gameView.gc.score
             firebasefile.updateCoins(newCoin: UserData.totalCoins, Username: UserData.Username)
-            self.navigationController?.pushViewController(menuController, animated: false)
+            let postGameController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "postgame")
+            guard let postGameController = postGameController as? PostGameViewController else {return}
+            postGameController.score = self.gameView.gc.score
+            self.navigationController?.pushViewController(postGameController, animated: false)
         }
         
     }

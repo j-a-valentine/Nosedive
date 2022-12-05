@@ -14,9 +14,11 @@ class JoinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @IBAction func returningUser(_ sender: Any) {
@@ -24,14 +26,12 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func returningUserButton(_ sender: Any) {
-        var entered_Username = returningUserTextOutlet.text
-        var username2 = entered_Username!
-        getRecurringUser(Username: username2)
+        if let username = returningUserTextOutlet.text{
+            getRecurringUser(Username: username)
+        }
     }
     
-    public func getRecurringUser(Username: String) -> Int{
-        
-        var highscore: AnyObject;
+    public func getRecurringUser(Username: String){
             
             database.getData(completion:  { error, snapshot in
               guard error == nil else {
@@ -57,8 +57,6 @@ class JoinViewController: UIViewController {
                 }
                 
             });
-   
-        return -1;
     }
     
     @IBOutlet weak var returningUserResult: UILabel!
@@ -75,14 +73,14 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var newUserTextOutlet2: UITextField!
     
     @IBAction func newUserButton(_ sender: Any) {
-        var entered_Username = newUserTextOutlet2.text
-        var username2 = entered_Username!
-        createNewUser(Username: username2)
+        if let username = newUserTextOutlet2.text {
+            createNewUser(Username: username)
+        }
     }
     
     @IBOutlet weak var newUserResult: UILabel!
     
-    public func createNewUser(Username: String) -> Int{
+    public func createNewUser(Username: String){
             
             database.getData(completion:  { error, snapshot in
               guard error == nil else {
@@ -117,8 +115,6 @@ class JoinViewController: UIViewController {
                 }
                 
             });
-   
-        return -1;
     }
     
     

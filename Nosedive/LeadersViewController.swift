@@ -35,7 +35,7 @@ class LeadersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         
         // Do any additional setup after loading the view.
         //firebasefile.addNewUser(Username: "User2")
@@ -48,9 +48,13 @@ class LeadersViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private let database = Database.database().reference()
     
-    public func getTopScores() -> Int{
+    public func getTopScores(){
         
         
         //var highscore: AnyObject!;
@@ -108,8 +112,6 @@ class LeadersViewController: UIViewController {
                 }
                 
             });
-   
-        return -1;
     }
 
     /*
