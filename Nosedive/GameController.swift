@@ -28,6 +28,7 @@ class GameController {
     var slowRemaining:Int
     var simpleMode:Bool
     var simpleRemaining:Int
+    var didWin:Bool
     
     
     init(screenWidth:CGFloat, screenHeight:CGFloat, numRows:Int, numCols:Int) {
@@ -39,6 +40,7 @@ class GameController {
         self.player = Player(origin:CGPoint(x:screenWidth/2-12, y:screenHeight/CGFloat(numRows)-12), length: 24)
         self.isPlaying = false
         self.gameOver = false
+        self.didWin = false
         self.levelData = LevelData(minCol:0, maxCol:numCols-1)
         self.theme = Theme()
         self.finishLineGenerated = false
@@ -118,6 +120,7 @@ class GameController {
             print("Game Over")
         }
         if self.tileManager.hasCollisionWithFinishLine(player: self.player) {
+            self.didWin=true
             self.endGame()
             print("You Win")
         }

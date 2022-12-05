@@ -9,8 +9,10 @@ import UIKit
 
 class PostGameViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     var score = 0
+    var didWin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +22,20 @@ class PostGameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.showScore(score: self.score)
+        self.showScore()
+        self.setTitle()
     }
     
-    func showScore(score: Int){
-        self.scoreLabel.text="Score: \(score)"
+    func showScore(){
+        self.scoreLabel.text="Score: \(self.score)"
+    }
+    
+    func setTitle(){
+        if didWin{
+            titleLabel.text="You Win!"
+        }else{
+            titleLabel.text="Game Over"
+        }
     }
     
     @IBAction func menuButton(_ sender: UIButton) {

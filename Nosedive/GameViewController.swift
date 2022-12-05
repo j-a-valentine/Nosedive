@@ -71,7 +71,11 @@ class GameViewController: UIViewController {
             let ghostButtonFrame = CGRect(x:40,y:720, width:80, height:40)
             self.ghostButton = UIButton(frame: ghostButtonFrame)
             self.ghostButton.setTitle("Ghost", for: .normal)
-            self.ghostButton.backgroundColor = .black
+            if self.theme.barrierColor == .black{
+                self.ghostButton.backgroundColor = .red
+            }else{
+                self.ghostButton.backgroundColor = .black
+            }
             self.ghostButton.setTitleColor(.white, for: .normal)
             self.ghostButton.addTarget(self, action: #selector(activateGhost), for: .touchUpInside)
             view.addSubview(self.ghostButton)
@@ -81,7 +85,11 @@ class GameViewController: UIViewController {
             let slowButtonFrame = CGRect(x:160,y:720, width:80, height:40)
             self.slowButton = UIButton(frame: slowButtonFrame)
             self.slowButton.setTitle("Slow", for: .normal)
-            self.slowButton.backgroundColor = .black
+            if self.theme.barrierColor == .black{
+                self.slowButton.backgroundColor = .red
+            }else{
+                self.slowButton.backgroundColor = .black
+            }
             self.slowButton.setTitleColor(.white, for: .normal)
             self.slowButton.addTarget(self, action: #selector(activateSlow), for: .touchUpInside)
             view.addSubview(self.slowButton)
@@ -93,7 +101,11 @@ class GameViewController: UIViewController {
             let simpleButtonFrame = CGRect(x:280,y:720, width:80, height:40)
             self.simpleButton = UIButton(frame: simpleButtonFrame)
             self.simpleButton.setTitle("Simple", for: .normal)
-            self.simpleButton.backgroundColor = .black
+            if self.theme.barrierColor == .black{
+                self.simpleButton.backgroundColor = .red
+            }else{
+                self.simpleButton.backgroundColor = .black
+            }
             self.simpleButton.setTitleColor(.white, for: .normal)
             self.simpleButton.addTarget(self, action: #selector(activateSimple), for: .touchUpInside)
             view.addSubview(self.simpleButton)
@@ -149,6 +161,7 @@ class GameViewController: UIViewController {
             let postGameController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "postgame")
             guard let postGameController = postGameController as? PostGameViewController else {return}
             postGameController.score = self.gameView.gc.score
+            postGameController.didWin=self.gameView.gc.didWin
             self.navigationController?.pushViewController(postGameController, animated: false)
         }
         

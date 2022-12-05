@@ -545,6 +545,7 @@
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="SxL-lm-zI9" id="1gf-q3-PSn"/>
+                        <outlet property="titleLabel" destination="LfK-CB-miy" id="hgc-Ow-Phz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjX-Cu-G3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

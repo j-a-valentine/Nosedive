@@ -69,7 +69,9 @@ class StoreViewController: UIViewController {
     
     func updateText() {
         let powerArr = firebasefile.getPowerUps(Username: UserData.Username)
-        coinCounter.text = "Coins: \(UserData.totalCoins)"
+        let coins = firebasefile.getCoins(Username: UserData.Username)
+        print(UserData.Username)
+        coinCounter.text = "Coins: \(coins)"
         boostCounter.text = "Owned: \(powerArr[2])"
         ghostCounter.text = "Owned: \(powerArr[0])"
         easyCounter.text = "Owned: \(powerArr[1])"
